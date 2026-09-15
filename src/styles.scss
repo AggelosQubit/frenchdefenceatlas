@@ -1,0 +1,60 @@
+:root {
+  --navy-950: #080d12;
+  --navy-900: #101820;
+  --navy-800: #18242d;
+  --sand: #d8c7a1;
+  --off-white: #f3f1eb;
+  --green: #34483c;
+  --green-light: #607765;
+  --line: rgba(216, 199, 161, 0.24);
+  --font: 'Orbitron', sans-serif;
+  color-scheme: dark;
+  font-family: var(--font);
+  font-synthesis: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--navy-950);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--navy-950);
+  color: var(--off-white);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+::selection {
+  background: var(--sand);
+  color: var(--navy-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--sand);
+  outline-offset: 4px;
+}

@@ -1,0 +1,274 @@
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="French Defence Atlas — accueil" (click)="closeMenu()">
+    <span class="brand__mark" aria-hidden="true">
+      <i></i><i></i><i></i>
+    </span>
+    <span class="brand__copy">
+      <strong>French Defence Atlas</strong>
+      <small>Atlas stratégique · France</small>
+    </span>
+  </a>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-label="Ouvrir le menu"
+    aria-controls="main-navigation"
+    [attr.aria-expanded]="menuOpen()"
+    (click)="toggleMenu()"
+  >
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav id="main-navigation" class="navigation" [class.navigation--open]="menuOpen()">
+    <a href="#organisation" (click)="closeMenu()">Organisation</a>
+    <a href="#histoire" (click)="closeMenu()">Histoire</a>
+    <a href="#geopolitique" (click)="closeMenu()">Géopolitique</a>
+    <a href="#capacites" (click)="closeMenu()">Moyens & Forces</a>
+    <a href="#retex" (click)="closeMenu()">RETEx</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__media" aria-hidden="true">
+      <video
+        #heroVideo
+        src="/videos/mtplf.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        tabindex="-1"
+      ></video>
+    </div>
+    <div class="hero__veil"></div>
+    <div class="hero__grid" aria-hidden="true"></div>
+
+    <div class="hero__coordinates" aria-hidden="true">
+      <span>46.2276° N</span>
+      <span>002.2137° E</span>
+    </div>
+
+    <div class="hero__content">
+      <p class="eyebrow"><span></span> Atlas numérique de la Défense française</p>
+      <h1 id="hero-title">
+        <span>Pour</span>
+        <span>la France</span>
+      </h1>
+      <p class="hero__lead">
+        Comprendre ses forces. Son Histoire Militaire.<br />
+        Explorer son organisation. Répertorier ses moyens.
+      </p>
+      <a class="hero__cta" href="#organisation">
+        Explorer l’atlas
+        <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+
+    <div class="hero__status">
+      <button
+        class="sound-toggle"
+        type="button"
+        [class.sound-toggle--active]="soundEnabled()"
+        [attr.aria-pressed]="soundEnabled()"
+        [attr.aria-label]="soundEnabled() ? 'Désactiver le son de la vidéo' : 'Activer le son de la vidéo'"
+        (click)="toggleSound()"
+      >
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>{{ soundEnabled() ? 'Son actif' : 'Activer le son' }}</span>
+      </button>
+      <span>FDA — 001</span>
+    </div>
+  </section>
+
+  <section id="organisation" class="manifesto section parallax-section parallax-section--organisation">
+    <div class="section__index" aria-hidden="true">
+      <span>01</span>
+      <i></i>
+      <small>Organisation</small>
+    </div>
+
+    <div class="manifesto__content">
+      <p class="eyebrow">01 — Organisation</p>
+      <h2>La Défense française</h2>
+      <div class="manifesto__columns">
+        <p>
+          Qui commande ? Qui agit ? Comment tout s’articule ? Cette partie donnera à voir
+          les institutions, les chaînes de commandement et les organismes qui composent
+          l’appareil de défense.
+        </p>
+        <p>
+          Du président de la République aux unités, l’atlas reliera chaque niveau à ses
+          responsabilités, ses rattachements et ses moyens d’action.
+        </p>
+      </div>
+      <a class="section-link" href="/organisation">
+        Explorer l’organisation <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <div class="manifesto__seal" aria-hidden="true">
+      <span>RF</span>
+      <i></i>
+      <span>01</span>
+    </div>
+  </section>
+
+  <section id="histoire" class="domains parallax-section parallax-section--histoire">
+    <div class="domains__heading">
+      <div>
+        <p class="eyebrow">02 — Histoire</p>
+        <h2>Histoire militaire</h2>
+      </div>
+      <p>Les choix, les doctrines, les grandes opérations et les héritages.</p>
+    </div>
+
+    <div class="domain-grid">
+      <article class="domain-card domain-card--terre">
+        <span class="domain-card__number">01 / 04</span>
+        <div class="domain-card__symbol" aria-hidden="true">40</div>
+        <div>
+          <p class="domain-card__tag">1939 — 1945</p>
+          <h3>France libre</h3>
+          <p>Le refus, la reconstruction d’une armée et la continuité de la France au combat.</p>
+        </div>
+      </article>
+
+      <article class="domain-card domain-card--marine">
+        <span class="domain-card__number">02 / 04</span>
+        <div class="domain-card__symbol" aria-hidden="true">58</div>
+        <div>
+          <p class="domain-card__tag">Ve République</p>
+          <h3>Indépendance</h3>
+          <p>La modernisation des armées, la dissuasion et l’autonomie stratégique.</p>
+        </div>
+      </article>
+
+      <article class="domain-card domain-card--air">
+        <span class="domain-card__number">03 / 04</span>
+        <div class="domain-card__symbol" aria-hidden="true">OPEX</div>
+        <div>
+          <p class="domain-card__tag">Opérations extérieures</p>
+          <h3>Engagements</h3>
+          <p>Les théâtres, les missions et les transformations issues de l’expérience.</p>
+        </div>
+      </article>
+
+      <article class="domain-card domain-card--command">
+        <span class="domain-card__number">04 / 04</span>
+        <div class="domain-card__symbol" aria-hidden="true">∞</div>
+        <div>
+          <p class="domain-card__tag">Culture de défense</p>
+          <h3>Héritages</h3>
+          <p>Traditions, mémoires, doctrines et continuités dans les armées contemporaines.</p>
+        </div>
+      </article>
+    </div>
+    <a class="section-link section-link--standalone" href="/histoire">
+      Explorer l’histoire militaire <span aria-hidden="true">↗</span>
+    </a>
+  </section>
+
+  <section id="geopolitique" class="atlas-preview section parallax-section parallax-section--geopolitique">
+    <div class="section__index" aria-hidden="true">
+      <span>03</span>
+      <i></i>
+      <small>Géopolitique</small>
+    </div>
+
+    <div class="atlas-preview__map" aria-hidden="true">
+      <div class="map-ring map-ring--one"></div>
+      <div class="map-ring map-ring--two"></div>
+      <div class="map-cross"></div>
+      <span class="map-point map-point--one"></span>
+      <span class="map-point map-point--two"></span>
+      <span class="map-point map-point--three"></span>
+      <span class="map-label map-label--one">Paris</span>
+      <span class="map-label map-label--two">Brest</span>
+      <span class="map-label map-label--three">Toulon</span>
+    </div>
+
+    <div class="atlas-preview__content">
+      <p class="eyebrow">03 — Géopolitique</p>
+      <h2>La France dans le monde</h2>
+      <p>
+        Alliances, rivalités, territoires, intérêts et stratégie internationale. Une lecture
+        des espaces où s’exercent la souveraineté et l’influence françaises.
+      </p>
+      <div class="atlas-preview__metrics" aria-label="Périmètre documentaire">
+        <div><strong>11</strong><span>Zones maritimes</span></div>
+        <div><strong>05</strong><span>Continents</span></div>
+        <div><strong>01</strong><span>Stratégie</span></div>
+      </div>
+      <a class="section-link" href="/geopolitique">
+        Explorer la géopolitique <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="capacites" class="pillar-feature parallax-section parallax-section--capacites">
+    <div class="pillar-feature__visual" aria-hidden="true">
+      <span class="pillar-feature__code">04</span>
+      <div class="radar">
+        <i></i><i></i><i></i>
+      </div>
+    </div>
+    <div class="pillar-feature__content">
+      <p class="eyebrow">04 — Moyens & Forces</p>
+      <h2>Les capacités militaires</h2>
+      <p>
+        Armées, unités, équipements, bases, systèmes et métiers. Comprendre non seulement
+        ce que la France possède, mais ce qu’elle est capable de produire comme effet.
+      </p>
+      <ul class="pillar-feature__list">
+        <li><span>01</span> Forces & unités</li>
+        <li><span>02</span> Matériels & systèmes</li>
+        <li><span>03</span> Bases & implantations</li>
+        <li><span>04</span> Métiers & savoir-faire</li>
+      </ul>
+      <a class="section-link" href="/capacites">
+        Explorer les capacités <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="retex" class="pillar-feature pillar-feature--reverse parallax-section parallax-section--retex">
+    <div class="pillar-feature__visual pillar-feature__visual--notes" aria-hidden="true">
+      <span class="pillar-feature__code">05</span>
+      <div class="field-notes">
+        <i></i><i></i><i></i><i></i><i></i>
+      </div>
+    </div>
+    <div class="pillar-feature__content">
+      <p class="eyebrow">05 — RETEx & Analyses</p>
+      <h2>Carnet de terrain</h2>
+      <p>
+        Tes événements, tes observations, tes lectures et tes réflexions. Un espace
+        personnel pour conserver ce qui a été entendu, compris et ce qui reste à vérifier.
+      </p>
+      <div class="retex-stamp">
+        <span>Observation</span>
+        <span>Analyse</span>
+        <span>À vérifier</span>
+      </div>
+      <a class="section-link" href="/retex">
+        Ouvrir le carnet <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <a class="brand brand--footer" href="#top">
+    <span class="brand__mark" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="brand__copy">
+      <strong>French Defence Atlas</strong>
+      <small>Comprendre. Explorer. Répertorier.</small>
+    </span>
+  </a>
+  <p>Projet documentaire personnel — sources à vérifier</p>
+  <a href="#top">Retour au sommet ↑</a>
+</footer>
