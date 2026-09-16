@@ -1,0 +1,291 @@
+import { HistoryPeriod } from './histoire.model';
+
+export const HISTORY_PERIODS: readonly HistoryPeriod[] = [
+  {
+    id: 'construction',
+    number: '01',
+    years: '1789–1914',
+    shortTitle: 'Construction',
+    title: 'La construction de la puissance militaire',
+    summary:
+      'De la levée en masse à l’armée de conscription, la France transforme la défense du royaume en une affaire nationale et entre dans l’âge industriel.',
+    centralQuestion:
+      'Comment la France construit-elle une armée nationale et une puissance militaire moderne ?',
+    context: [
+      'La Révolution bouleverse l’ordre politique, les cadres de l’armée royale et la relation entre le citoyen et la défense du territoire.',
+      'Le XIXe siècle conjugue instabilité des régimes, compétition européenne et industrialisation accélérée de la guerre.',
+    ],
+    triggers: [
+      'Les guerres révolutionnaires et la menace des coalitions européennes.',
+      'Les défaites de 1815 puis de 1870, qui révèlent les limites du système militaire.',
+      'Le chemin de fer, l’artillerie moderne et la mobilisation de masse.',
+    ],
+    decisions: [
+      {
+        date: '1793',
+        title: 'La levée en masse',
+        event: 'La République affronte simultanément les puissances européennes et des insurrections intérieures.',
+        problem: 'Produire rapidement une force capable de défendre le territoire sur plusieurs fronts.',
+        decision: 'Mobiliser la population et placer les ressources de la Nation au service de la guerre.',
+        consequence: 'Changement d’échelle des effectifs et affirmation du modèle du citoyen-soldat.',
+        legacy: 'La défense nationale devient durablement liée à la citoyenneté et à la mobilisation collective.',
+      },
+      {
+        date: '1872–1889',
+        title: 'L’armée de conscription',
+        event: 'La défaite de 1870 et la perte de l’Alsace-Lorraine provoquent une refondation militaire.',
+        problem: 'Reconstruire une armée nombreuse, instruite et mobilisable face à l’Empire allemand.',
+        decision: 'Établir progressivement un service militaire personnel et universel.',
+        consequence: 'Création d’une armée de masse appuyée sur les réserves et organisée pour la mobilisation générale.',
+        legacy: 'Le service militaire structure pendant plus d’un siècle le lien entre armée et Nation.',
+      },
+    ],
+    forces: ['Armée de Terre', 'Marine', 'Artillerie', 'Réserves', 'État-major', 'Industrie'],
+    legacies: [
+      'Le principe de Nation en armes.',
+      'La conscription et l’organisation des réserves.',
+      'La professionnalisation de l’état-major et de l’enseignement militaire.',
+    ],
+    image: '/img/arctriomphe.png',
+    imagePosition: 'center 45%',
+  },
+  {
+    id: 'guerres-mondiales',
+    number: '02',
+    years: '1914–1945',
+    shortTitle: 'Guerres mondiales',
+    title: 'Les guerres mondiales',
+    summary:
+      'Deux conflits totaux imposent la guerre industrielle, provoquent l’effondrement de 1940 puis font émerger la France libre et un outil militaire à reconstruire.',
+    centralQuestion:
+      'Comment survivre à la guerre totale, comprendre la défaite et restaurer la France au combat ?',
+    context: [
+      'Les puissances européennes disposent d’armées de masse, d’empires et d’industries capables de soutenir un conflit prolongé.',
+      'Après la victoire de 1918, les pertes humaines, les contraintes économiques et le traumatisme de la guerre pèsent sur les choix doctrinaux.',
+    ],
+    triggers: [
+      'La mobilisation générale d’août 1914 et l’enlisement du front.',
+      'La rupture opérative allemande de mai 1940.',
+      'L’armistice, l’appel du 18 juin et la mondialisation du conflit.',
+    ],
+    decisions: [
+      {
+        date: '1917–1918',
+        title: 'Coordonner la guerre industrielle',
+        event: 'L’usure du front et les crises de 1917 menacent la capacité française à poursuivre la guerre.',
+        problem: 'Maintenir la cohésion des forces tout en préparant le retour à l’offensive.',
+        decision: 'Réorganiser le commandement, articuler alliés, artillerie, chars, aviation et logistique.',
+        consequence: 'Une conduite plus intégrée des opérations contribue à la victoire de 1918.',
+        legacy: 'La guerre devient une entreprise interalliée, industrielle et profondément coordonnée.',
+      },
+      {
+        date: '18 juin 1940',
+        title: 'Poursuivre le combat',
+        event: 'Après la défaite militaire, le gouvernement demande l’armistice.',
+        problem: 'Préserver une capacité française de combat et une légitimité politique aux côtés des Alliés.',
+        decision: 'De Gaulle appelle à continuer la guerre et organise les Forces françaises libres.',
+        consequence: 'Des forces terrestres, navales et aériennes combattent jusqu’à la Libération sous l’autorité de la France libre.',
+        legacy: 'La continuité de l’État combattant fonde une part majeure de la légitimité française d’après-guerre.',
+      },
+    ],
+    forces: ['Armée de Terre', 'Marine nationale', 'Forces aériennes', 'France libre', 'Résistance', 'Industrie'],
+    legacies: [
+      'Le développement du combat interarmes et interallié.',
+      'La mémoire de 1940 comme rupture doctrinale et politique.',
+      'La France libre comme matrice de la reconstruction militaire.',
+    ],
+    image: '/img/arctriomphe.png',
+    imagePosition: '72% center',
+  },
+  {
+    id: 'reconstruction',
+    number: '03',
+    years: '1945–1962',
+    shortTitle: 'Reconstruction',
+    title: 'Reconstruire et retrouver une puissance',
+    summary:
+      'La France libérée reconstruit ses forces tout en affrontant la guerre froide, la décolonisation et la question de son rang dans le nouvel ordre mondial.',
+    centralQuestion: 'Quelle place la France veut-elle occuper après 1945 ?',
+    context: [
+      'Le territoire et l’économie sortent affaiblis du conflit tandis que les États-Unis et l’URSS structurent un monde bipolaire.',
+      'La France veut conserver son rang, tenir ses engagements européens et gérer les guerres de décolonisation.',
+    ],
+    triggers: [
+      'La création de l’OTAN et l’installation durable de la guerre froide.',
+      'La défaite de Diên Biên Phu, l’insurrection algérienne et la crise de Suez.',
+      'La dépendance aux moyens alliés et l’apparition de l’arme nucléaire.',
+    ],
+    decisions: [
+      {
+        date: '1949',
+        title: 'Entrer dans l’Alliance atlantique',
+        event: 'La menace soviétique et la division de l’Europe rendent nécessaire une défense collective.',
+        problem: 'Protéger le territoire et reconstruire les forces avec des ressources nationales limitées.',
+        decision: 'Participer à la création de l’OTAN et intégrer la planification militaire occidentale.',
+        consequence: 'Les forces françaises sont rééquipées et insérées dans une organisation multinationale.',
+        legacy: 'L’Alliance demeure un cadre central, mais la question de l’autonomie française reste ouverte.',
+      },
+      {
+        date: '1954–1962',
+        title: 'Adapter les forces aux guerres de décolonisation',
+        event: 'Les conflits d’Indochine et d’Algérie imposent des engagements longs et politiquement sensibles.',
+        problem: 'Conduire des opérations irrégulières tout en maintenant la posture européenne.',
+        decision: 'Développer aéromobilité, renseignement, quadrillage territorial et forces spécialisées.',
+        consequence: 'L’armée acquiert une expérience opérationnelle considérable mais traverse une crise politique profonde.',
+        legacy: 'Ces conflits marquent durablement la doctrine, les institutions et les relations civilo-militaires.',
+      },
+    ],
+    forces: ['Armée de Terre', 'Marine nationale', 'Armée de l’Air', 'Forces coloniales', 'Renseignement', 'Alliance atlantique'],
+    legacies: [
+      'La recherche d’un rang stratégique propre.',
+      'Une expérience majeure des conflits irréguliers.',
+      'Les premières bases politiques et techniques de la dissuasion.',
+    ],
+    image: '/img/francedanslemonde.jfif',
+    imagePosition: 'center',
+  },
+  {
+    id: 'independance',
+    number: '04',
+    years: '1958–1991',
+    shortTitle: 'Indépendance',
+    title: 'La stratégie d’indépendance',
+    summary:
+      'La Ve République réorganise le pouvoir militaire, bâtit une dissuasion nationale et affirme une autonomie de décision au sein du camp occidental.',
+    centralQuestion:
+      'Comment garantir la sécurité de la France sans dépendre totalement de la décision d’un allié ?',
+    context: [
+      'Le retour du général de Gaulle renforce l’exécutif et replace la souveraineté au centre de la politique de défense.',
+      'L’équilibre nucléaire entre les deux blocs fait de l’autonomie d’appréciation et de décision un enjeu existentiel.',
+    ],
+    triggers: [
+      'La crise institutionnelle de 1958 et l’évolution du conflit algérien.',
+      'La dépendance stratégique révélée par Suez.',
+      'La compétition nucléaire et la rigidité du système des blocs.',
+    ],
+    decisions: [
+      {
+        date: '1960–1964',
+        title: 'Développer la dissuasion nucléaire',
+        event: 'La guerre froide place la sécurité européenne sous la garantie nucléaire américaine.',
+        problem: 'Garantir les intérêts vitaux français sans dépendre entièrement de la décision d’un allié.',
+        decision: 'Développer une capacité nucléaire nationale et une force de dissuasion indépendante.',
+        consequence: 'Création progressive des composantes aérienne, terrestre puis océanique de la force de frappe.',
+        legacy: 'La dissuasion reste au cœur de la stratégie française et de son autonomie de décision.',
+      },
+      {
+        date: '1966',
+        title: 'Quitter le commandement intégré de l’OTAN',
+        event: 'La France conteste une organisation militaire jugée trop dépendante des États-Unis.',
+        problem: 'Préserver la liberté d’emploi des forces et la maîtrise du territoire national.',
+        decision: 'Retirer les forces françaises du commandement militaire intégré tout en restant dans l’Alliance.',
+        consequence: 'Réorganisation du commandement, départ des états-majors alliés et affirmation d’une posture singulière.',
+        legacy: 'L’autonomie stratégique devient un marqueur durable de la politique de défense française.',
+      },
+    ],
+    forces: ['Présidence', 'État-major des armées', 'Forces aériennes stratégiques', 'Marine nationale', 'Industrie', 'Renseignement'],
+    legacies: [
+      'La centralité présidentielle dans les affaires nucléaires.',
+      'Une base industrielle et technologique souveraine.',
+      'L’autonomie stratégique comme principe directeur.',
+    ],
+    image: '/img/capamili.jpg',
+    imagePosition: '42% center',
+  },
+  {
+    id: 'opex',
+    number: '05',
+    years: '1991–2014',
+    shortTitle: 'Opérations extérieures',
+    title: 'L’ère des opérations extérieures',
+    summary:
+      'Après la guerre froide, les forces se professionnalisent et enchaînent des engagements expéditionnaires, multinationaux et de plus en plus interarmées.',
+    centralQuestion:
+      'Comment une armée conçue pour la guerre froide s’adapte-t-elle aux opérations extérieures ?',
+    context: [
+      'La disparition de la menace soviétique réduit le risque d’un affrontement majeur en Europe mais multiplie les crises régionales.',
+      'La France intervient au sein de coalitions, de l’OTAN, de l’Union européenne ou sous mandat des Nations unies.',
+    ],
+    triggers: [
+      'La guerre du Golfe puis les conflits dans les Balkans.',
+      'Les attentats du 11 septembre et l’engagement en Afghanistan.',
+      'La nécessité de projeter rapidement des forces loin du territoire national.',
+    ],
+    decisions: [
+      {
+        date: '1996',
+        title: 'Professionnaliser les armées',
+        event: 'Les missions se multiplient alors que le modèle de conscription répond moins aux besoins de projection.',
+        problem: 'Disposer d’unités disponibles, entraînées et immédiatement projetables.',
+        decision: 'Suspendre le service national et passer à une armée professionnelle.',
+        consequence: 'Réduction des formats, transformation du recrutement et concentration sur la préparation opérationnelle.',
+        legacy: 'Le modèle professionnel structure encore l’ensemble des forces françaises.',
+      },
+      {
+        date: '1991–2014',
+        title: 'Construire un outil expéditionnaire',
+        event: 'Du Golfe au Sahel, les opérations imposent vitesse, précision et coopération multinationale.',
+        problem: 'Entrer en premier, durer et agir avec des partenaires sur des théâtres éloignés.',
+        decision: 'Renforcer projection, forces spéciales, renseignement, ravitaillement et commandement interarmées.',
+        consequence: 'Les armées gagnent en réactivité et en intégration mais subissent une forte pression sur les effectifs et matériels.',
+        legacy: 'La culture opérationnelle contemporaine reste profondément marquée par trois décennies d’OPEX.',
+      },
+    ],
+    forces: ['Forces projetables', 'Forces spéciales', 'Commandement interarmées', 'Aviation de transport', 'Marine nationale', 'Renseignement'],
+    legacies: [
+      'La professionnalisation complète des forces.',
+      'La culture interarmées et multinationale.',
+      'Une forte capacité d’intervention rapide hors du territoire.',
+    ],
+    image: '/img/francedanslemonde.jfif',
+    imagePosition: 'center 72%',
+  },
+  {
+    id: 'haute-intensite',
+    number: '06',
+    years: '2014–aujourd’hui',
+    shortTitle: 'Haute intensité',
+    title: 'Le retour des conflits de haute intensité',
+    summary:
+      'Terrorisme, compétition entre puissances, guerre en Ukraine et ruptures technologiques obligent la France à préparer des affrontements plus durs.',
+    centralQuestion:
+      'Comment les forces françaises se préparent-elles à un environnement plus dur et plus technologique ?',
+    context: [
+      'Les attentats replacent la protection du territoire au premier plan tandis que les puissances réinvestissent le rapport de force militaire.',
+      'Le cyber, l’espace, les drones et la guerre informationnelle étendent la confrontation à de nouveaux milieux.',
+    ],
+    triggers: [
+      'L’annexion de la Crimée, les attentats de 2015 et l’engagement au Sahel.',
+      'L’invasion russe de l’Ukraine en 2022 et le retour de la guerre d’attrition en Europe.',
+      'La diffusion des drones, des frappes de précision et des attaques cyber.',
+    ],
+    decisions: [
+      {
+        date: '2015–2023',
+        title: 'Réinvestir la masse et la résilience',
+        event: 'La simultanéité des engagements révèle la tension sur les effectifs, les stocks et la disponibilité.',
+        problem: 'Pouvoir protéger le territoire, tenir dans la durée et répondre à un conflit plus exigeant.',
+        decision: 'Augmenter l’effort de défense, consolider les stocks et accélérer la remontée en puissance.',
+        consequence: 'Les lois de programmation militaire réorientent les ressources vers la préparation et la cohérence du modèle.',
+        legacy: 'La capacité à durer et à régénérer les forces redevient un critère stratégique central.',
+      },
+      {
+        date: '2022–aujourd’hui',
+        title: 'Préparer le combat multi-milieux',
+        event: 'La guerre en Ukraine démontre la combinaison de la masse, de la précision, des drones et de l’information.',
+        problem: 'Conserver la supériorité décisionnelle dans un espace contesté et fortement transparent.',
+        decision: 'Intégrer davantage cyber, espace, renseignement, feux longue portée et systèmes autonomes.',
+        consequence: 'Transformation de l’entraînement, du commandement et des priorités industrielles.',
+        legacy: 'La haute intensité impose une adaptation continue de la doctrine et du contrat opérationnel.',
+      },
+    ],
+    forces: ['Trois armées', 'Cyberdéfense', 'Commandement de l’Espace', 'Renseignement', 'Industrie de défense', 'Réserves'],
+    legacies: [
+      'Le retour de la profondeur, de la masse et des stocks.',
+      'L’intégration du cyber, de l’espace et de la lutte informationnelle.',
+      'Une préparation opérationnelle recentrée sur les conflits contestés.',
+    ],
+    image: '/img/defencefrancaise.png',
+    imagePosition: 'center',
+  },
+];

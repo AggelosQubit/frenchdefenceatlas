@@ -8,6 +8,7 @@
   --green-light: #607765;
   --line: rgba(216, 199, 161, 0.24);
   --font: 'Orbitron', sans-serif;
+  --copy-size: clamp(0.73rem, 1.05vw, 0.9rem);
   color-scheme: dark;
   font-family: var(--font);
   font-synthesis: none;
@@ -32,6 +33,7 @@ body {
   background: var(--navy-950);
   color: var(--off-white);
   font-family: var(--font);
+  font-size: var(--copy-size);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }

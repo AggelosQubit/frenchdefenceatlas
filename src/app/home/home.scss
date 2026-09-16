@@ -62,7 +62,7 @@
 
   small {
     color: var(--sand);
-    font-size: 0.52rem;
+    font-size: var(--copy-size);
     letter-spacing: 0.18em;
     text-transform: uppercase;
   }
@@ -76,7 +76,7 @@
   a {
     position: relative;
     color: rgba(243, 241, 235, 0.7);
-    font-size: 0.5rem;
+    font-size: var(--copy-size);
     font-weight: 600;
     letter-spacing: 0.2em;
     text-decoration: none;
@@ -184,7 +184,7 @@
 .eyebrow {
   margin: 0 0 20px;
   color: var(--sand);
-  font-size: 0.57rem;
+  font-size: var(--copy-size);
   font-weight: 600;
   letter-spacing: 0.24em;
   line-height: 1.7;
@@ -212,20 +212,36 @@
   text-transform: uppercase;
   text-wrap: balance;
 
-  span {
+  > span {
     display: block;
   }
 
-  span:first-child {
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(243, 241, 235, 0.7);
+  .hero__pour-la {
+    color: var(--off-white);
+    white-space: nowrap;
+  }
+
+  .hero__france {
+    white-space: nowrap;
+  }
+
+  .hero__fr {
+    color: #0055a4;
+  }
+
+  .hero__an {
+    color: var(--off-white);
+  }
+
+  .hero__ce {
+    color: #ef4135;
   }
 }
 
 .hero__lead {
   margin: 30px 0 38px;
   color: rgba(243, 241, 235, 0.76);
-  font-size: clamp(0.68rem, 1vw, 0.85rem);
+  font-size: var(--copy-size);
   font-weight: 400;
   letter-spacing: 0.11em;
   line-height: 1.9;
@@ -240,7 +256,7 @@
   padding: 17px 20px;
   border: 1px solid var(--sand);
   color: var(--off-white);
-  font-size: 0.58rem;
+  font-size: var(--copy-size);
   font-weight: 600;
   letter-spacing: 0.17em;
   text-decoration: none;
@@ -269,7 +285,7 @@
   padding: 15px 0;
   border-bottom: 1px solid var(--sand);
   color: var(--off-white);
-  font-size: 0.52rem;
+  font-size: var(--copy-size);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-decoration: none;
@@ -302,7 +318,7 @@
   display: flex;
   gap: 18px;
   color: rgba(216, 199, 161, 0.55);
-  font-size: 0.48rem;
+  font-size: var(--copy-size);
   letter-spacing: 0.16em;
   writing-mode: vertical-rl;
 }
@@ -315,7 +331,7 @@
   align-items: center;
   gap: 10px;
   color: rgba(243, 241, 235, 0.46);
-  font-size: 0.48rem;
+  font-size: var(--copy-size);
   letter-spacing: 0.16em;
   text-transform: uppercase;
 
@@ -382,7 +398,7 @@
   transform: translateY(-50%);
 
   span {
-    font-size: 0.6rem;
+    font-size: var(--copy-size);
   }
 
   i {
@@ -392,7 +408,7 @@
   }
 
   small {
-    font-size: 0.45rem;
+    font-size: var(--copy-size);
     letter-spacing: 0.22em;
     text-transform: uppercase;
     writing-mode: vertical-rl;
@@ -445,7 +461,7 @@
   p {
     margin: 0;
     color: rgba(243, 241, 235, 0.61);
-    font-size: 0.68rem;
+    font-size: var(--copy-size);
     font-weight: 400;
     letter-spacing: 0.04em;
     line-height: 2;
@@ -517,7 +533,7 @@
     max-width: 360px;
     margin: 0;
     color: rgba(243, 241, 235, 0.52);
-    font-size: 0.62rem;
+    font-size: var(--copy-size);
     letter-spacing: 0.05em;
     line-height: 1.8;
   }
@@ -525,7 +541,7 @@
 
 .domain-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--line);
   border-left: 1px solid var(--line);
 }
@@ -540,7 +556,9 @@
   overflow: hidden;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: rgba(8, 13, 18, 0.66);
+  color: inherit;
+  text-decoration: none;
+  background: transparent;
   transition:
     background 260ms ease,
     transform 260ms ease;
@@ -580,7 +598,7 @@
   p:last-child {
     margin: 0;
     color: rgba(243, 241, 235, 0.56);
-    font-size: 0.57rem;
+    font-size: var(--copy-size);
     letter-spacing: 0.03em;
     line-height: 1.8;
   }
@@ -589,7 +607,7 @@
 .domain-card__number,
 .domain-card__tag {
   color: var(--sand);
-  font-size: 0.48rem;
+  font-size: var(--copy-size);
   letter-spacing: 0.17em;
   text-transform: uppercase;
 }
@@ -681,7 +699,7 @@
 .map-label {
   position: absolute;
   color: rgba(243, 241, 235, 0.64);
-  font-size: 0.45rem;
+  font-size: var(--copy-size);
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -718,7 +736,7 @@
     max-width: 520px;
     margin: 0;
     color: rgba(243, 241, 235, 0.58);
-    font-size: 0.65rem;
+    font-size: var(--copy-size);
     letter-spacing: 0.04em;
     line-height: 2;
   }
@@ -750,7 +768,7 @@
 
   span {
     color: rgba(243, 241, 235, 0.48);
-    font-size: 0.46rem;
+    font-size: var(--copy-size);
     letter-spacing: 0.15em;
     text-transform: uppercase;
   }
@@ -770,7 +788,7 @@
   > a:last-child {
     margin: 0;
     color: rgba(243, 241, 235, 0.4);
-    font-size: 0.48rem;
+    font-size: var(--copy-size);
     letter-spacing: 0.14em;
     text-decoration: none;
     text-transform: uppercase;
@@ -971,20 +989,29 @@
 
 .parallax-section--organisation {
   background-image:
-    linear-gradient(115deg, rgba(8, 13, 18, 0.98) 0 52%, rgba(52, 72, 60, 0.75)),
-    repeating-linear-gradient(90deg, transparent 0 119px, rgba(216, 199, 161, 0.05) 120px);
+    linear-gradient(115deg, rgba(8, 13, 18, 0.98) 0 45%, rgba(8, 13, 18, 0.52) 72%, rgba(52, 72, 60, 0.56)),
+    repeating-linear-gradient(90deg, transparent 0 119px, rgba(216, 199, 161, 0.05) 120px),
+    url('/img/defencefrancaise.png');
+  background-position: center, center, center;
+  background-size: cover, auto, cover;
 }
 
 .parallax-section--histoire {
   background-image:
-    linear-gradient(rgba(16, 24, 32, 0.84), rgba(8, 13, 18, 0.96)),
-    repeating-linear-gradient(0deg, transparent 0 79px, rgba(216, 199, 161, 0.06) 80px);
+    linear-gradient(rgba(8, 13, 18, 0.54), rgba(8, 13, 18, 0.92)),
+    repeating-linear-gradient(0deg, transparent 0 79px, rgba(216, 199, 161, 0.06) 80px),
+    url('/img/arctriomphe.png');
+  background-position: center, center, center 42%;
+  background-size: cover, auto, cover;
 }
 
 .parallax-section--geopolitique {
   background-image:
-    radial-gradient(circle at 25% 50%, rgba(52, 72, 60, 0.5), transparent 34%),
-    linear-gradient(115deg, rgba(8, 13, 18, 0.92), rgba(16, 24, 32, 0.98));
+    radial-gradient(circle at 25% 50%, rgba(52, 72, 60, 0.34), transparent 34%),
+    linear-gradient(115deg, rgba(8, 13, 18, 0.7), rgba(8, 13, 18, 0.92)),
+    url('/img/francedanslemonde.jfif');
+  background-position: center, center, center;
+  background-size: cover, cover, cover;
 }
 
 .pillar-feature {
@@ -1001,8 +1028,11 @@
 
 .parallax-section--capacites {
   background-image:
-    linear-gradient(90deg, rgba(8, 13, 18, 0.96), rgba(52, 72, 60, 0.72)),
-    repeating-linear-gradient(135deg, transparent 0 60px, rgba(216, 199, 161, 0.04) 61px);
+    linear-gradient(90deg, rgba(8, 13, 18, 0.58), rgba(8, 13, 18, 0.94)),
+    repeating-linear-gradient(135deg, transparent 0 60px, rgba(216, 199, 161, 0.04) 61px),
+    url('/img/capamili.jpg');
+  background-position: center, center, 38% center;
+  background-size: cover, auto, cover;
 }
 
 .parallax-section--retex {
@@ -1039,7 +1069,7 @@
   top: 20px;
   left: 24px;
   color: rgba(216, 199, 161, 0.44);
-  font-size: 0.55rem;
+  font-size: var(--copy-size);
   letter-spacing: 0.2em;
 }
 
@@ -1112,7 +1142,7 @@
   > p:not(.eyebrow) {
     margin: 0;
     color: rgba(243, 241, 235, 0.6);
-    font-size: 0.65rem;
+    font-size: var(--copy-size);
     letter-spacing: 0.04em;
     line-height: 2;
   }
@@ -1129,7 +1159,7 @@
     gap: 20px;
     padding: 16px 0;
     border-bottom: 1px solid var(--line);
-    font-size: 0.58rem;
+    font-size: var(--copy-size);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
@@ -1178,7 +1208,7 @@
     padding: 11px 13px;
     border: 1px solid var(--line);
     color: var(--sand);
-    font-size: 0.46rem;
+    font-size: var(--copy-size);
     letter-spacing: 0.13em;
     text-transform: uppercase;
   }

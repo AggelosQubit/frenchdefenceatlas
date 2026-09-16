@@ -22,7 +22,7 @@
   </button>
 
   <nav id="main-navigation" class="navigation" [class.navigation--open]="menuOpen()">
-    <a href="#organisation" (click)="closeMenu()">Organisation</a>
+    <a href="#organisation" (click)="closeMenu()">Architecture</a>
     <a href="#histoire" (click)="closeMenu()">Histoire</a>
     <a href="#geopolitique" (click)="closeMenu()">Géopolitique</a>
     <a href="#capacites" (click)="closeMenu()">Moyens & Forces</a>
@@ -55,8 +55,8 @@
     <div class="hero__content">
       <p class="eyebrow"><span></span> Atlas numérique de la Défense française</p>
       <h1 id="hero-title">
-        <span>Pour</span>
-        <span>la France</span>
+        <span class="hero__pour-la">Pour<br />la</span>
+        <span class="hero__france"><span class="hero__fr">FR</span><span class="hero__an">AN</span><span class="hero__ce">CE</span></span>
       </h1>
       <p class="hero__lead">
         Comprendre ses forces. Son Histoire Militaire.<br />
@@ -88,11 +88,11 @@
     <div class="section__index" aria-hidden="true">
       <span>01</span>
       <i></i>
-      <small>Organisation</small>
+      <small>Architecture</small>
     </div>
 
     <div class="manifesto__content">
-      <p class="eyebrow">01 — Organisation</p>
+      <p class="eyebrow">01 — Architecture</p>
       <h2>La Défense française</h2>
       <div class="manifesto__columns">
         <p>
@@ -106,7 +106,7 @@
         </p>
       </div>
       <a class="section-link" href="/organisation">
-        Explorer l’organisation <span aria-hidden="true">↗</span>
+        Explorer l’architecture <span aria-hidden="true">↗</span>
       </a>
     </div>
 
@@ -123,51 +123,26 @@
         <p class="eyebrow">02 — Histoire</p>
         <h2>Histoire militaire</h2>
       </div>
-      <p>Les choix, les doctrines, les grandes opérations et les héritages.</p>
+        <p>
+          Comprendre les décisions militaires françaises à travers les crises, les guerres
+          et les ruptures qui ont façonné leur époque.
+        </p>
     </div>
 
     <div class="domain-grid">
-      <article class="domain-card domain-card--terre">
-        <span class="domain-card__number">01 / 04</span>
-        <div class="domain-card__symbol" aria-hidden="true">40</div>
-        <div>
-          <p class="domain-card__tag">1939 — 1945</p>
-          <h3>France libre</h3>
-          <p>Le refus, la reconstruction d’une armée et la continuité de la France au combat.</p>
-        </div>
-      </article>
-
-      <article class="domain-card domain-card--marine">
-        <span class="domain-card__number">02 / 04</span>
-        <div class="domain-card__symbol" aria-hidden="true">58</div>
-        <div>
-          <p class="domain-card__tag">Ve République</p>
-          <h3>Indépendance</h3>
-          <p>La modernisation des armées, la dissuasion et l’autonomie stratégique.</p>
-        </div>
-      </article>
-
-      <article class="domain-card domain-card--air">
-        <span class="domain-card__number">03 / 04</span>
-        <div class="domain-card__symbol" aria-hidden="true">OPEX</div>
-        <div>
-          <p class="domain-card__tag">Opérations extérieures</p>
-          <h3>Engagements</h3>
-          <p>Les théâtres, les missions et les transformations issues de l’expérience.</p>
-        </div>
-      </article>
-
-      <article class="domain-card domain-card--command">
-        <span class="domain-card__number">04 / 04</span>
-        <div class="domain-card__symbol" aria-hidden="true">∞</div>
-        <div>
-          <p class="domain-card__tag">Culture de défense</p>
-          <h3>Héritages</h3>
-          <p>Traditions, mémoires, doctrines et continuités dans les armées contemporaines.</p>
-        </div>
-      </article>
+      @for (period of historyPeriods; track period.id) {
+        <a class="domain-card" [routerLink]="['/histoire', period.id]">
+          <span class="domain-card__number">{{ period.number }} / {{ historyTotal }}</span>
+          <div class="domain-card__symbol" aria-hidden="true">{{ period.number }}</div>
+          <div>
+            <p class="domain-card__tag">{{ period.years }} — {{ period.shortTitle }}</p>
+            <h3>{{ period.shortTitle }}</h3>
+            <p>{{ period.centralQuestion }}</p>
+          </div>
+        </a>
+      }
     </div>
-    <a class="section-link section-link--standalone" href="/histoire">
+    <a class="section-link section-link--standalone" routerLink="/histoire">
       Explorer l’histoire militaire <span aria-hidden="true">↗</span>
     </a>
   </section>

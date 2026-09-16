@@ -1,0 +1,201 @@
+<header class="topbar">
+  <a class="brand" routerLink="/" aria-label="French Defence Atlas — accueil" (click)="closeMenu()">
+    <span class="brand__mark" aria-hidden="true">
+      <i></i><i></i><i></i>
+    </span>
+    <span class="brand__copy">
+      <strong>French Defence Atlas</strong>
+      <small>Atlas stratégique · France</small>
+    </span>
+  </a>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-label="Ouvrir le menu"
+    aria-controls="histoire-navigation"
+    [attr.aria-expanded]="menuOpen()"
+    (click)="toggleMenu()"
+  >
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav id="histoire-navigation" class="navigation" [class.navigation--open]="menuOpen()">
+    <a routerLink="/" fragment="organisation" (click)="closeMenu()">Architecture</a>
+    <a routerLink="/histoire" class="is-current" (click)="closeMenu()">Histoire</a>
+    <a routerLink="/" fragment="geopolitique" (click)="closeMenu()">Géopolitique</a>
+    <a routerLink="/" fragment="capacites" (click)="closeMenu()">Moyens & Forces</a>
+    <a routerLink="/" fragment="retex" (click)="closeMenu()">RETEx</a>
+  </nav>
+</header>
+
+@if (selectedPeriod(); as period) {
+  <main class="period-page" [attr.aria-labelledby]="'period-title-' + period.id">
+    <section
+      class="period-hero"
+      [style.--period-image]="'url(' + period.image + ')'"
+      [style.--period-position]="period.imagePosition"
+    >
+      <div class="period-hero__veil"></div>
+      <p class="eyebrow">{{ period.number }} / {{ totalLabel }} — Histoire militaire</p>
+      <p class="period-hero__years">{{ period.years }}</p>
+      <h1 [id]="'period-title-' + period.id">{{ period.title }}</h1>
+      <p class="period-hero__summary">{{ period.summary }}</p>
+      <p class="period-hero__question">{{ period.centralQuestion }}</p>
+      <a class="back-link" routerLink="/histoire">← Toutes les périodes</a>
+    </section>
+
+    <div class="dossier">
+      <section class="dossier-block" aria-labelledby="context-title">
+        <p class="eyebrow">01 — Le contexte</p>
+        <h2 id="context-title">Ce qui se joue</h2>
+        <div class="dossier-block__copy">
+          @for (paragraph of period.context; track paragraph) {
+            <p>{{ paragraph }}</p>
+          }
+        </div>
+      </section>
+
+      <section class="dossier-block" aria-labelledby="triggers-title">
+        <p class="eyebrow">02 — Les événements déclencheurs</p>
+        <h2 id="triggers-title">Ce qui force la décision</h2>
+        <ol class="trigger-list">
+          @for (trigger of period.triggers; track trigger; let i = $index) {
+            <li>
+              <span>{{ pad(i + 1) }}</span>
+              <p>{{ trigger }}</p>
+            </li>
+          }
+        </ol>
+      </section>
+
+      <section class="dossier-block" aria-labelledby="decisions-title">
+        <p class="eyebrow">03 — Les décisions militaires</p>
+        <h2 id="decisions-title">De l’événement à l’héritage</h2>
+        <div class="decision-list">
+          @for (decision of period.decisions; track decisionKey(decision, $index); let i = $index) {
+            <article class="decision" [class.decision--open]="isDecisionOpen(i)">
+              <button
+                type="button"
+                class="decision__header"
+                [attr.aria-expanded]="isDecisionOpen(i)"
+                (click)="toggleDecision(i)"
+              >
+                <span class="decision__date">{{ decision.date }}</span>
+                <h3>{{ decision.title }}</h3>
+                <span class="decision__toggle" aria-hidden="true">{{ isDecisionOpen(i) ? '–' : '+' }}</span>
+              </button>
+              @if (isDecisionOpen(i)) {
+                <ol class="chain">
+                  <li>
+                    <span>Événement</span>
+                    <p>{{ decision.event }}</p>
+                  </li>
+                  <li>
+                    <span>Problème stratégique</span>
+                    <p>{{ decision.problem }}</p>
+                  </li>
+                  <li>
+                    <span>Décision politique / militaire</span>
+                    <p>{{ decision.decision }}</p>
+                  </li>
+                  <li>
+                    <span>Conséquence sur les forces</span>
+                    <p>{{ decision.consequence }}</p>
+                  </li>
+                  <li>
+                    <span>Héritage</span>
+                    <p>{{ decision.legacy }}</p>
+                  </li>
+                </ol>
+              }
+            </article>
+          }
+        </div>
+      </section>
+
+      <section class="dossier-block" aria-labelledby="forces-title">
+        <p class="eyebrow">04 — Les forces concernées</p>
+        <h2 id="forces-title">Qui est transformé</h2>
+        <ul class="force-list">
+          @for (force of period.forces; track force) {
+            <li>{{ force }}</li>
+          }
+        </ul>
+      </section>
+
+      <section class="dossier-block dossier-block--last" aria-labelledby="legacy-title">
+        <p class="eyebrow">05 — Les héritages</p>
+        <h2 id="legacy-title">Ce qui demeure</h2>
+        <ul class="legacy-list">
+          @for (legacy of period.legacies; track legacy) {
+            <li>{{ legacy }}</li>
+          }
+        </ul>
+      </section>
+    </div>
+  </main>
+} @else {
+  <main>
+    <section class="intro" aria-labelledby="histoire-title">
+      <div class="intro__veil"></div>
+      <div class="intro__grid" aria-hidden="true"></div>
+      <div class="intro__content">
+        <p class="eyebrow"><span></span> 02 — Histoire militaire</p>
+        <h1 id="histoire-title">Période. Crise. Décision.</h1>
+        <p class="intro__lead">
+          Comprendre les décisions militaires françaises à travers les crises, les guerres
+          et les ruptures qui ont façonné leur époque.
+        </p>
+        <a class="intro__cta" href="#periodes">
+          Entrer dans les périodes
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+      <div class="intro__meta" aria-hidden="true">
+        <span>{{ totalLabel }} périodes</span>
+        <span>FDA — HIS</span>
+      </div>
+    </section>
+
+    <section id="periodes" class="periods" aria-labelledby="periodes-title">
+      <div class="periods__heading">
+        <div>
+          <p class="eyebrow">Cartographie historique</p>
+          <h2 id="periodes-title">Six transformations stratégiques</h2>
+        </div>
+        <p>
+          Chaque carte ouvre une fiche : contexte, événements déclencheurs, décisions
+          militaires, forces concernées et héritages.
+        </p>
+      </div>
+
+      <div class="period-grid">
+        @for (period of periods; track period.id) {
+          <a class="period-card" [routerLink]="['/histoire', period.id]">
+            <span class="period-card__number">{{ period.number }} / {{ totalLabel }}</span>
+            <div class="period-card__symbol" aria-hidden="true">{{ period.number }}</div>
+            <div class="period-card__copy">
+              <p class="period-card__tag">{{ period.years }} — {{ period.shortTitle }}</p>
+              <h3>{{ period.title }}</h3>
+              <p>{{ period.summary }}</p>
+            </div>
+          </a>
+        }
+      </div>
+    </section>
+  </main>
+}
+
+<footer class="footer">
+  <a class="brand brand--footer" routerLink="/">
+    <span class="brand__mark" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="brand__copy">
+      <strong>French Defence Atlas</strong>
+      <small>Comprendre. Explorer. Répertorier.</small>
+    </span>
+  </a>
+  <p>Projet documentaire personnel — sources à vérifier</p>
+  <a routerLink="/histoire" fragment="periodes">Retour aux périodes ↑</a>
+</footer>

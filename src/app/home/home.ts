@@ -1,24 +1,39 @@
 import {
+  afterNextRender,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
   signal,
   viewChild,
 } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { HISTORY_PERIODS } from '../histoire/histoire.data';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Home {
+  readonly historyPeriods = HISTORY_PERIODS;
+  readonly historyTotal = String(HISTORY_PERIODS.length).padStart(2, '0');
   readonly menuOpen = signal(false);
   readonly soundEnabled = signal(false);
 
   private readonly heroVideo =
     viewChild.required<ElementRef<HTMLVideoElement>>('heroVideo');
+
+  constructor() {
+    afterNextRender(() => {
+      const video = this.heroVideo().nativeElement;
+
+      video.defaultMuted = true;
+      video.muted = true;
+      void video.play().catch(() => undefined);
+    });
+  }
 
   toggleMenu(): void {
     this.menuOpen.update((isOpen) => !isOpen);
