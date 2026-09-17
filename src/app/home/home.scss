@@ -108,15 +108,15 @@
   }
 
   .hero__fr {
-    color: #0055a4;
+    color: var(--flag-blue);
   }
 
   .hero__an {
-    color: var(--off-white);
+    color: var(--flag-white);
   }
 
   .hero__ce {
-    color: #ef4135;
+    color: var(--flag-red);
   }
 }
 

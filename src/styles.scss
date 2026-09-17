@@ -4,6 +4,9 @@
   --navy-800: #18242d;
   --sand: #d8c7a1;
   --off-white: #f3f1eb;
+  --flag-blue: #0c2063;
+  --flag-white: #ffffff;
+  --flag-red: #ac202c;
   --green: #34483c;
   --green-light: #607765;
   --line: rgba(216, 199, 161, 0.24);
@@ -101,15 +104,15 @@ button {
   }
 
   i:nth-child(1) {
-    background: #315a8a;
+    background: var(--flag-blue);
   }
 
   i:nth-child(2) {
-    background: var(--off-white);
+    background: var(--flag-white);
   }
 
   i:nth-child(3) {
-    background: #9c343b;
+    background: var(--flag-red);
   }
 }
 
@@ -137,4 +140,3 @@ button {
     font-size: 0.65rem;
   }
 }
-
