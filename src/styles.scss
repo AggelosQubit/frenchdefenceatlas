@@ -8,6 +8,7 @@
   --green-light: #607765;
   --line: rgba(216, 199, 161, 0.24);
   --font: 'Orbitron', sans-serif;
+  --font-body: 'Inter', sans-serif;
   --copy-size: clamp(0.73rem, 1.05vw, 0.9rem);
   color-scheme: dark;
   font-family: var(--font);
@@ -36,6 +37,25 @@ body {
   font-size: var(--copy-size);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+p,
+blockquote,
+cite,
+figcaption {
+  font-family: var(--font-body);
+}
+
+.legacy-list li {
+  font-family: var(--font-body);
+}
+
+.eyebrow,
+.period-card__tag,
+.domain-card__tag,
+.period-hero__years,
+.billet__place {
+  font-family: var(--font);
 }
 
 button,
