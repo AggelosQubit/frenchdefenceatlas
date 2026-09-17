@@ -8,10 +8,11 @@ import {
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HISTORY_PERIODS } from '../histoire/histoire.data';
+import { SiteNav } from '../nav/nav';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink],
+  imports: [RouterLink, SiteNav],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,7 +20,6 @@ import { HISTORY_PERIODS } from '../histoire/histoire.data';
 export class Home {
   readonly historyPeriods = HISTORY_PERIODS;
   readonly historyTotal = String(HISTORY_PERIODS.length).padStart(2, '0');
-  readonly menuOpen = signal(false);
   readonly soundEnabled = signal(false);
 
   private readonly heroVideo =
@@ -33,14 +33,6 @@ export class Home {
       video.muted = true;
       void video.play().catch(() => undefined);
     });
-  }
-
-  toggleMenu(): void {
-    this.menuOpen.update((isOpen) => !isOpen);
-  }
-
-  closeMenu(): void {
-    this.menuOpen.set(false);
   }
 
   toggleSound(): void {

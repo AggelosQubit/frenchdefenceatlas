@@ -1,34 +1,4 @@
-<header class="topbar">
-  <a class="brand" href="#top" aria-label="French Defence Atlas — accueil" (click)="closeMenu()">
-    <span class="brand__mark" aria-hidden="true">
-      <i></i><i></i><i></i>
-    </span>
-    <span class="brand__copy">
-      <strong>French Defence Atlas</strong>
-      <small>Atlas stratégique · France</small>
-    </span>
-  </a>
-
-  <button
-    class="menu-toggle"
-    type="button"
-    aria-label="Ouvrir le menu"
-    aria-controls="main-navigation"
-    [attr.aria-expanded]="menuOpen()"
-    (click)="toggleMenu()"
-  >
-    <span></span>
-    <span></span>
-  </button>
-
-  <nav id="main-navigation" class="navigation" [class.navigation--open]="menuOpen()">
-    <a href="#organisation" (click)="closeMenu()">Architecture</a>
-    <a href="#histoire" (click)="closeMenu()">Histoire</a>
-    <a href="#geopolitique" (click)="closeMenu()">Géopolitique</a>
-    <a href="#capacites" (click)="closeMenu()">Moyens & Forces</a>
-    <a href="#retex" (click)="closeMenu()">RETEx</a>
-  </nav>
-</header>
+<app-nav />
 
 <main id="top">
   <section class="hero" aria-labelledby="hero-title">
@@ -229,7 +199,7 @@
         <span>Analyse</span>
         <span>À vérifier</span>
       </div>
-      <a class="section-link" href="/retex">
+      <a class="section-link" routerLink="/retex">
         Ouvrir le carnet <span aria-hidden="true">↗</span>
       </a>
     </div>

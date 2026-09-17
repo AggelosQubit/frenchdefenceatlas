@@ -1,0 +1,431 @@
+:host {
+  display: block;
+  background: var(--navy-950);
+}
+
+.eyebrow {
+  margin: 0 0 20px;
+  color: var(--sand);
+  font-size: var(--copy-size);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.intro {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: clamp(130px, 18vh, 190px) 8vw clamp(80px, 11vh, 120px);
+  isolation: isolate;
+  background:
+    linear-gradient(90deg, rgba(8, 13, 18, 0.9) 0%, rgba(8, 13, 18, 0.48) 55%, rgba(8, 13, 18, 0.24)),
+    linear-gradient(0deg, var(--navy-950) 0%, transparent 42%),
+    url('/billets/2/04-panel-monde-desaligne.jpg') center 38% / cover;
+}
+
+.intro__veil,
+.intro__grid {
+  position: absolute;
+  inset: 0;
+}
+
+.intro__veil {
+  z-index: -2;
+  background: linear-gradient(180deg, rgba(8, 13, 18, 0.35), transparent 28%);
+}
+
+.intro__grid {
+  z-index: -1;
+  opacity: 0.14;
+  background-image:
+    linear-gradient(rgba(216, 199, 161, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216, 199, 161, 0.22) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to right, black, transparent 82%);
+}
+
+.intro__content {
+  position: relative;
+  width: min(920px, 86vw);
+}
+
+.intro .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  span {
+    width: 34px;
+    height: 1px;
+    background: var(--sand);
+  }
+}
+
+.intro h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 6.4rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.intro__lead {
+  max-width: 640px;
+  margin: 28px 0 38px;
+  color: rgba(243, 241, 235, 0.76);
+  font-size: var(--copy-size);
+  letter-spacing: 0.11em;
+  line-height: 1.9;
+  text-transform: uppercase;
+}
+
+.intro__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(320px, 100%);
+  padding: 17px 20px;
+  border: 1px solid var(--sand);
+  color: var(--off-white);
+  font-size: var(--copy-size);
+  font-weight: 600;
+  letter-spacing: 0.17em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover {
+    background: var(--sand);
+    color: var(--navy-950);
+  }
+}
+
+.intro__meta {
+  position: absolute;
+  right: 4vw;
+  bottom: 38px;
+  display: flex;
+  gap: 18px;
+  color: rgba(243, 241, 235, 0.46);
+  font-size: var(--copy-size);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  span:last-child {
+    color: var(--sand);
+  }
+}
+
+.carnet {
+  padding: 12vh 8vw 10vh;
+}
+
+.carnet__heading {
+  display: grid;
+  grid-template-columns: 1fr min(420px, 38vw);
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 48px;
+
+  h2 {
+    margin: 0;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  > p {
+    margin: 0;
+    color: rgba(243, 241, 235, 0.62);
+    line-height: 1.9;
+  }
+}
+
+.billet-list {
+  display: grid;
+  gap: 16px;
+}
+
+.billet {
+  border: 1px solid var(--line);
+  background: rgba(16, 24, 32, 0.72);
+}
+
+.billet__header {
+  display: grid;
+  grid-template-columns: 48px 190px 150px minmax(0, 1fr) 28px;
+  gap: 16px 20px;
+  align-items: center;
+  width: 100%;
+  padding: 20px 24px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.billet__number,
+.billet__toggle {
+  color: var(--sand);
+  letter-spacing: 0.16em;
+}
+
+.billet__toggle {
+  font-size: 1.3rem;
+}
+
+.billet__date,
+.billet__author {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.billet__date {
+  color: var(--sand);
+}
+
+.billet__author {
+  color: rgba(243, 241, 235, 0.5);
+}
+
+.billet h3 {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.billet__body {
+  display: grid;
+  gap: 28px;
+  padding: 0 24px 32px;
+}
+
+.billet__place {
+  margin: 0;
+  color: var(--sand);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.billet__lead,
+.billet__loading,
+.section__body p {
+  margin: 0;
+  color: rgba(243, 241, 235, 0.72);
+  line-height: 1.9;
+}
+
+.carousel {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.carousel__nav {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--sand);
+  cursor: pointer;
+}
+
+.carousel__frame {
+  margin: 0;
+  min-width: 0;
+
+  figcaption {
+    display: grid;
+    gap: 8px;
+    margin-top: 12px;
+    color: rgba(243, 241, 235, 0.55);
+    letter-spacing: 0.08em;
+    line-height: 1.6;
+
+    span {
+      color: var(--sand);
+      text-transform: uppercase;
+    }
+  }
+}
+
+.carousel__stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--navy-900);
+
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+.carousel__dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+
+  button {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 1px solid var(--sand);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .is-current {
+    background: var(--sand);
+  }
+}
+
+.section-list {
+  display: grid;
+  gap: 12px;
+}
+
+.section {
+  border: 1px solid rgba(216, 199, 161, 0.16);
+}
+
+.section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 20px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+
+  h4 {
+    margin: 0;
+    font-size: 0.86rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  span {
+    color: var(--sand);
+    font-size: 1.2rem;
+  }
+}
+
+.section__body {
+  display: grid;
+  gap: 16px;
+  padding: 0 20px 22px;
+}
+
+blockquote {
+  margin: 0;
+  padding: 16px 0 16px 18px;
+  border-left: 1px solid var(--sand);
+
+  p {
+    color: var(--off-white);
+    font-style: normal;
+  }
+
+  cite {
+    display: block;
+    margin-top: 10px;
+    color: var(--sand);
+    font-style: normal;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  min-height: 150px;
+  padding: 35px 4vw;
+  border-top: 1px solid var(--line);
+  background: #070b0f;
+
+  p,
+  > a:last-child {
+    margin: 0;
+    color: rgba(243, 241, 235, 0.4);
+    letter-spacing: 0.14em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 1050px) {
+  .carnet__heading {
+    grid-template-columns: 1fr;
+  }
+
+  .billet__header {
+    grid-template-columns: 40px 170px 130px minmax(0, 1fr) 24px;
+    gap: 12px 14px;
+  }
+}
+
+@media (max-width: 760px) {
+  .intro,
+  .carnet {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .intro {
+    padding-top: 120px;
+  }
+
+  .intro__meta {
+    display: none;
+  }
+
+  .carousel {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .billet__header {
+    grid-template-columns: 36px 7.2rem 7.4rem minmax(0, 1fr) 20px;
+    padding: 16px 14px;
+    gap: 10px;
+  }
+
+  .carousel__frame {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 45px 20px;
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "id": 1,
+  "date": "2026-06-26",
+  "titre": "WAP - Wargaming A Paris",
+  "Author": "AggelosQubit",
+  "content": {
+    "eventDate": "2026-06-26",
+    "place": "École militaire, Paris",
+    "lead": "Le 26 juin, Wargaming A Paris, à l'École militaire. C'était la première fois que je venais.",
+    "images": [
+      {
+        "src": "/billets/1/01-metro-treillis.jpg",
+        "alt": "Militaires en treillis à la sortie du métro, vers l'École militaire"
+      },
+      {
+        "src": "/billets/1/02-ecole-militaire.jpg",
+        "alt": "L'École militaire, place Joffre"
+      },
+      {
+        "src": "/billets/1/03-faisceau.jpg",
+        "alt": "Faisceau sculpté sur la façade de l'École militaire"
+      },
+      {
+        "src": "/billets/1/04-pancarte-wap.jpg",
+        "alt": "Pancarte Wargaming à Paris"
+      },
+      {
+        "src": "/billets/1/05-porte-irsem.jpg",
+        "alt": "Entrée 013 B — IRSEM, DEMS, IHEMI, ACADEM"
+      },
+      {
+        "src": "/billets/1/06-programme.jpg",
+        "alt": "Programme de Wargaming à Paris, mercredi 24 juin"
+      },
+      {
+        "src": "/billets/1/07-salle.jpg",
+        "alt": "Salle de conférence, Wargaming à Paris"
+      },
+      {
+        "src": "/billets/1/08-tribune.jpg",
+        "alt": "Intervention à la tribune, bannière Wargaming à Paris"
+      },
+      {
+        "src": "/billets/1/09-menaces-hybrides.jpg",
+        "alt": "Panel Hybrid threats and their models in wargames"
+      },
+      {
+        "src": "/billets/1/10-resevac.jpg",
+        "alt": "Wargame RESEVAC — évacuation de ressortissants"
+      },
+      {
+        "src": "/billets/1/11-stands.jpg",
+        "alt": "Stands De Facto et MASA"
+      },
+      {
+        "src": "/billets/1/12-cour.jpg",
+        "alt": "Dans la cour de l'École militaire"
+      },
+      {
+        "src": "/billets/1/13-tente.jpg",
+        "alt": "Fin de journée, Wargaming à Paris"
+      }
+    ],
+    "sections": [
+      {
+        "id": "suffren",
+        "title": "Le Suffren",
+        "paragraphs": [
+          "En sortant du métro, un militaire en treillis. Étoiles dans les yeux. Je me dis : je vais le suivre, on va certainement au même endroit.",
+          "NOPE. Il rentre dans le bar à la sortie du métro.",
+          "Je lève les yeux pour voir l'enseigne : « Le Suffren ». Boom. Re-étoiles dans les yeux. Je suis vraiment au bon endroit."
+        ]
+      },
+      {
+        "id": "mission",
+        "title": "Une mission de service",
+        "paragraphs": [
+          "Après un premier contact avec la DGA il y a un peu plus d'un an, j'avais commencé à découvrir un univers que je connaissais finalement assez peu. Depuis, ma vision du domaine de la défense a beaucoup évolué.",
+          "J'y vois de moins en moins un simple secteur d'activité, et de plus en plus une mission de service : mettre des compétences techniques, humaines et stratégiques au service d'un objectif qui dépasse l'individu.",
+          "Les échanges de cette journée autour du wargaming ont parfaitement illustré cette dimension."
+        ]
+      },
+      {
+        "id": "biais",
+        "title": "Complexité, anticipation, biais",
+        "paragraphs": [
+          "Une discussion en particulier m'a marqué : comment intégrer la complexité des conflits hybrides — acteurs multiples, temporalités différentes, effets cross-domain — sans rendre les wargames trop complexes pour rester utiles ?",
+          "Autre réflexion intéressante : les joueurs savent souvent qu'un scénario finira par converger vers une phase cinétique. Cette anticipation influence leurs décisions et peut devenir un biais du jeu lui-même.",
+          "Au-delà des cartes et des scénarios, le wargaming apparaît finalement comme un formidable outil pour révéler les hypothèses, les biais et les modèles mentaux qui guident nos décisions."
+        ],
+        "quotes": [
+          {
+            "text": "Apprend-on réellement quelque chose sur le conflit étudié, ou apprend-on surtout à optimiser son comportement à l'intérieur du système de jeu ?"
+          }
+        ]
+      },
+      {
+        "id": "fil",
+        "title": "Ce que je retiens",
+        "paragraphs": [
+          "Cette journée confirme également mon intérêt grandissant pour ce domaine, dans lequel j'espère pouvoir apporter ma contribution un jour.",
+          "Merci aux organisateurs, aux intervenants et à toutes les personnes rencontrées pour la qualité des échanges."
+        ]
+      }
+    ]
+  }
+}

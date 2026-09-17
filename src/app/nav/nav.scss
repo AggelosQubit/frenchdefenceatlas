@@ -1,0 +1,142 @@
+:host {
+  display: contents;
+}
+
+.topbar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+  padding: 0 4vw;
+  border-bottom: 1px solid var(--line);
+  overflow: visible;
+  background: linear-gradient(180deg, rgba(8, 13, 18, 0.94), rgba(8, 13, 18, 0.62));
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    backdrop-filter: blur(12px);
+  }
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  right: 4vw;
+  z-index: 21;
+  display: flex;
+  align-items: center;
+  height: 76px;
+  gap: clamp(14px, 2.2vw, 34px);
+
+  a {
+    position: relative;
+    color: rgba(243, 241, 235, 0.7);
+    font-size: var(--copy-size);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 180ms ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 100%;
+      bottom: -10px;
+      left: 0;
+      height: 1px;
+      background: var(--sand);
+      transition: right 180ms ease;
+    }
+
+    &:hover,
+    &.is-current {
+      color: var(--off-white);
+    }
+
+    &:hover::after,
+    &.is-current::after {
+      right: 0;
+    }
+  }
+}
+
+.menu-toggle {
+  display: none;
+  position: relative;
+  z-index: 22;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: transparent;
+
+  span {
+    display: block;
+    width: 17px;
+    height: 1px;
+    margin: 6px auto;
+    background: var(--off-white);
+  }
+}
+
+@media (max-width: 1040px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navigation {
+    top: 76px;
+    right: 0;
+    left: 0;
+    height: auto;
+    display: grid;
+    gap: 0;
+    padding: 0 4vw;
+    border-bottom: 1px solid var(--line);
+    background: rgba(8, 13, 18, 0.98);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease,
+      visibility 180ms ease;
+
+    a {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(216, 199, 161, 0.12);
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .navigation--open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    height: 68px;
+    padding: 0 20px;
+  }
+
+  .navigation {
+    top: 68px;
+    padding: 0 20px;
+  }
+}

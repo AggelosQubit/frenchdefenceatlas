@@ -11,10 +11,11 @@ import {
 import { Router, RouterLink } from '@angular/router';
 import { HISTORY_PERIODS } from './histoire.data';
 import { StrategicDecision } from './histoire.model';
+import { SiteNav } from '../nav/nav';
 
 @Component({
   selector: 'app-histoire',
-  imports: [RouterLink],
+  imports: [RouterLink, SiteNav],
   templateUrl: './histoire.html',
   styleUrl: './histoire.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,7 +26,6 @@ export class Histoire {
   readonly id = input<string | undefined>();
   readonly periods = HISTORY_PERIODS;
   readonly totalLabel = String(HISTORY_PERIODS.length).padStart(2, '0');
-  readonly menuOpen = signal(false);
   readonly openDecisionIndex = signal<number | null>(null);
 
   readonly selectedPeriod = computed(() => {
@@ -44,14 +44,6 @@ export class Histoire {
     });
   }
 
-  toggleMenu(): void {
-    this.menuOpen.update((isOpen) => !isOpen);
-  }
-
-  closeMenu(): void {
-    this.menuOpen.set(false);
-  }
-
   toggleDecision(index: number): void {
     this.openDecisionIndex.update((current) => (current === index ? null : index));
   }
@@ -66,6 +58,18 @@ export class Histoire {
 
   pad(index: number): string {
     return String(index).padStart(2, '0');
+  }
+
+  scrollToPeriods(event: Event): void {
+    event.preventDefault();
+    const target = document.getElementById('periodes');
+    if (!target) {
+      return;
+    }
+
+    const offset = window.matchMedia('(max-width: 760px)').matches ? 88 : 96;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
   }
 
   @HostListener('document:keydown.escape')

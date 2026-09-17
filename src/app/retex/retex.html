@@ -1,0 +1,150 @@
+<app-nav />
+
+<main>
+  <section class="intro" aria-labelledby="retex-title">
+    <div class="intro__veil"></div>
+    <div class="intro__grid" aria-hidden="true"></div>
+    <div class="intro__content">
+      <p class="eyebrow"><span></span> 05 — RETEx & Analyses</p>
+      <h1 id="retex-title">Carnet de terrain</h1>
+      <p class="intro__lead">
+        Observations, lectures et réflexions. Un espace personnel pour conserver ce qui a été
+        entendu, compris, et ce qui reste à vérifier.
+      </p>
+      <a class="intro__cta" routerLink="/retex" fragment="carnet">
+        Ouvrir les billets
+        <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+    <div class="intro__meta" aria-hidden="true">
+      <span>{{ pad(catalog().length) }} billets</span>
+      <span>FDA — RTX</span>
+    </div>
+  </section>
+
+  <section id="carnet" class="carnet" aria-labelledby="carnet-title">
+    <div class="carnet__heading">
+      <div>
+        <p class="eyebrow">Journal stratégique</p>
+        <h2 id="carnet-title">Billets</h2>
+      </div>
+      <p>
+        Chaque fiche se déplie : notes de séance, formules retenues, images. Ce qui n’est pas
+        encore vérifié reste marqué comme tel.
+      </p>
+    </div>
+
+    <div class="billet-list">
+      @for (entry of catalog(); track entry.id) {
+        <article class="billet" [class.billet--open]="isBilletOpen(entry.id)">
+          <button
+            type="button"
+            class="billet__header"
+            [attr.aria-expanded]="isBilletOpen(entry.id)"
+            (click)="toggleBillet(entry.id)"
+          >
+            <span class="billet__number">{{ pad(entry.id) }}</span>
+            <span class="billet__date">{{ formatDate(entry.date) }}</span>
+            <span class="billet__author">{{ entry.Author }}</span>
+            <h3>{{ entry.titre }}</h3>
+            <span class="billet__toggle" aria-hidden="true">{{ isBilletOpen(entry.id) ? '–' : '+' }}</span>
+          </button>
+
+          @if (isBilletOpen(entry.id)) {
+            @if (articles()[entry.id]; as article) {
+              <div class="billet__body">
+                <p class="billet__place">
+                  {{ formatDate(article.content.eventDate) }} — {{ article.content.place }}
+                </p>
+                <p class="billet__lead">{{ article.content.lead }}</p>
+
+                @if (article.content.images.length) {
+                  <div class="carousel" aria-label="Photographies de la séance">
+                    <button type="button" class="carousel__nav" (click)="previousSlide()" aria-label="Image précédente">
+                      ←
+                    </button>
+
+                    @if (currentImage(); as image) {
+                      <figure class="carousel__frame">
+                        <div class="carousel__stage">
+                          <img [src]="image.src" [alt]="image.alt" />
+                        </div>
+                        <figcaption>
+                          <span>{{ pad(slideIndex() + 1) }} / {{ pad(article.content.images.length) }}</span>
+                          {{ image.alt }}
+                        </figcaption>
+                      </figure>
+                    }
+
+                    <button type="button" class="carousel__nav" (click)="nextSlide()" aria-label="Image suivante">
+                      →
+                    </button>
+                  </div>
+
+                  <div class="carousel__dots" role="tablist" aria-label="Sélection de l’image">
+                    @for (image of article.content.images; track image.src; let i = $index) {
+                      <button
+                        type="button"
+                        [class.is-current]="slideIndex() === i"
+                        [attr.aria-label]="'Afficher l’image ' + pad(i + 1)"
+                        (click)="goToSlide(i)"
+                      ></button>
+                    }
+                  </div>
+                }
+
+                <div class="section-list">
+                  @for (section of article.content.sections; track section.id) {
+                    <article class="section" [class.section--open]="isSectionOpen(section.id)">
+                      <button
+                        type="button"
+                        class="section__header"
+                        [attr.aria-expanded]="isSectionOpen(section.id)"
+                        (click)="toggleSection(section.id)"
+                      >
+                        <h4>{{ section.title }}</h4>
+                        <span aria-hidden="true">{{ isSectionOpen(section.id) ? '–' : '+' }}</span>
+                      </button>
+
+                      @if (isSectionOpen(section.id)) {
+                        <div class="section__body">
+                          @for (paragraph of section.paragraphs; track paragraph) {
+                            <p>{{ paragraph }}</p>
+                          }
+                          @if (section.quotes; as quotes) {
+                            @for (quote of quotes; track quote.text) {
+                              <blockquote>
+                                <p>{{ quote.text }}</p>
+                                @if (quote.source) {
+                                  <cite>{{ quote.source }}</cite>
+                                }
+                              </blockquote>
+                            }
+                          }
+                        </div>
+                      }
+                    </article>
+                  }
+                </div>
+              </div>
+            } @else {
+              <p class="billet__loading">Chargement du dossier…</p>
+            }
+          }
+        </article>
+      }
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <a class="brand brand--footer" routerLink="/">
+    <span class="brand__mark" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="brand__copy">
+      <strong>French Defence Atlas</strong>
+      <small>Comprendre. Explorer. Répertorier.</small>
+    </span>
+  </a>
+  <p>Projet documentaire personnel — sources à vérifier</p>
+  <a routerLink="/" fragment="retex">Retour à l’atlas ↑</a>
+</footer>

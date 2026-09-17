@@ -1,0 +1,37 @@
+<header class="topbar">
+  <a
+    class="brand"
+    routerLink="/"
+    fragment="top"
+    aria-label="French Defence Atlas — accueil"
+    (click)="closeMenu()"
+  >
+    <span class="brand__mark" aria-hidden="true">
+      <i></i><i></i><i></i>
+    </span>
+    <span class="brand__copy">
+      <strong>French Defence Atlas</strong>
+      <small>Atlas stratégique · France</small>
+    </span>
+  </a>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-label="Ouvrir le menu"
+    aria-controls="site-navigation"
+    [attr.aria-expanded]="menuOpen()"
+    (click)="toggleMenu()"
+  >
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<nav id="site-navigation" class="navigation" [class.navigation--open]="menuOpen()">
+  <a routerLink="/" fragment="organisation" (click)="closeMenu()">Architecture</a>
+  <a routerLink="/histoire" routerLinkActive="is-current" (click)="closeMenu()">Histoire</a>
+  <a routerLink="/" fragment="geopolitique" (click)="closeMenu()">Géopolitique</a>
+  <a routerLink="/" fragment="capacites" (click)="closeMenu()">Moyens & Forces</a>
+  <a routerLink="/retex" routerLinkActive="is-current" (click)="closeMenu()">RETEx</a>
+</nav>
