@@ -118,13 +118,13 @@
           Comprendre les décisions militaires françaises à travers les crises, les guerres
           et les ruptures qui ont façonné leur époque.
         </p>
-        <a class="intro__cta" href="/histoire#periodes" (click)="scrollToPeriods($event)">
+        <a class="intro__cta" href="/histoire#periodes" (click)="scrollToAnchor($event, 'periodes')">
           Entrer dans les périodes
           <span aria-hidden="true">↓</span>
         </a>
       </div>
       <div class="intro__meta" aria-hidden="true">
-        <span>{{ totalLabel }} périodes</span>
+        <span>{{ totalLabel }} périodes · {{ docsLabel }} films</span>
         <span>FDA — HIS</span>
       </div>
     </section>
@@ -153,6 +153,96 @@
             </div>
           </a>
         }
+      </div>
+    </section>
+
+    <section class="docs" aria-labelledby="documentaires-title">
+      <div id="documentaires" class="periods__heading">
+        <div>
+          <p class="eyebrow">Documentaires</p>
+          <h2 id="documentaires-title">Voir et entendre</h2>
+        </div>
+        <p>
+          Films et analyses classés par figures, régimes et théâtres. Le lecteur s’ouvre dans
+          la fiche.
+        </p>
+      </div>
+
+      <div class="doc-groups">
+        @for (category of categories; track category.id) {
+          <section class="doc-group" [attr.aria-labelledby]="'doc-cat-' + category.id">
+            <div class="doc-group__heading">
+              <p class="eyebrow" [id]="'doc-cat-' + category.id">{{ category.title }}</p>
+              <p>{{ category.summary }}</p>
+            </div>
+
+            @if (filmsFor(category); as films) {
+              @if (films.length) {
+                <div class="doc-list">
+                  @for (film of films; track film.id) {
+                    <article
+                      class="doc"
+                      [id]="'doc-' + film.id"
+                      [class.doc--open]="isDocumentaryOpen(film.id)"
+                    >
+                      <button
+                        type="button"
+                        class="doc__header"
+                        [attr.aria-expanded]="isDocumentaryOpen(film.id)"
+                        (click)="toggleDocumentary(film.id)"
+                      >
+                        <span class="doc__number">{{ film.year }}</span>
+                        @if (thumbnailUrl(film.url); as thumb) {
+                          <span class="doc__preview" aria-hidden="true">
+                            <img [src]="thumb" alt="" (error)="onThumbnailError($event)" />
+                          </span>
+                        }
+                        <span class="doc__channel">{{ film.channel }}</span>
+                        <h3>{{ film.title }}</h3>
+                        <span class="doc__toggle" aria-hidden="true">
+                          {{ isDocumentaryOpen(film.id) ? '–' : '+' }}
+                        </span>
+                      </button>
+
+                      @if (isDocumentaryOpen(film.id)) {
+                        <div class="doc__body">
+                          @if (embedUrl(film.url); as embed) {
+                            <div class="doc__player">
+                              <iframe
+                                [src]="embed"
+                                [title]="film.title"
+                                loading="lazy"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                              ></iframe>
+                            </div>
+                          }
+                          <p>{{ film.description }}</p>
+                        </div>
+                      }
+                    </article>
+                  }
+                </div>
+              } @else {
+                <p class="doc-group__empty">Aucun documentaire pour l’instant.</p>
+              }
+            }
+          </section>
+        }
+      </div>
+    </section>
+
+    <section class="resources" id="ressources" aria-labelledby="ressources-title">
+      <div class="periods__heading">
+        <div>
+          <p class="eyebrow">Fonds documentaire</p>
+          <h2 id="ressources-title">Ressources</h2>
+        </div>
+        <p>
+          Livres, archives et références à verser progressivement. Section en cours de
+          constitution.
+        </p>
       </div>
     </section>
   </main>

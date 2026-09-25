@@ -1,0 +1,180 @@
+<app-nav />
+
+<main>
+  <section class="intro" aria-labelledby="architecture-title">
+    <div class="intro__veil"></div>
+    <div class="intro__grid" aria-hidden="true"></div>
+    <div class="intro__content">
+      <p class="eyebrow"><span></span> 01 — Architecture</p>
+      <h1 id="architecture-title">Qui commande. Qui agit.</h1>
+      <p class="intro__lead">
+        Lire l’appareil de défense comme un système : autorités, organismes, flux
+        d’information et de décision.
+      </p>
+      <a class="intro__cta" href="/architecture#atlas" (click)="scrollToAtlas($event)">
+        Entrer dans le schéma
+        <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+
+    @if (legendItems().length) {
+      <ul class="intro__legend">
+        @for (item of legendItems(); track item[0]) {
+          <li>
+            <i [style.background]="item[1].color" aria-hidden="true"></i>
+            <strong>{{ item[1].question }}</strong>
+          </li>
+        }
+      </ul>
+    }
+
+    <div class="intro__meta" aria-hidden="true">
+      <span>{{ organismCount() }} organismes</span>
+      <span>FDA — ARC</span>
+    </div>
+  </section>
+
+  <section id="atlas" class="atlas" aria-labelledby="atlas-title">
+    <div class="atlas__heading">
+      <div>
+        <p class="eyebrow">Organigramme</p>
+        <h2 id="atlas-title">L’écosystème de défense</h2>
+      </div>
+      <p>
+        Hiérarchie par rattachement. Un nœud ouvre la fiche ; les flux restent dans
+        leur propre fenêtre.
+      </p>
+    </div>
+
+    @if (loadError()) {
+      <p class="atlas__empty">Le schéma n’a pas pu être chargé.</p>
+    } @else {
+      <div class="atlas__stage">
+        <div
+          class="atlas__canvas"
+          [class.is-panning]="panning()"
+          (pointerdown)="onCanvasPointerDown($event)"
+          (pointermove)="onCanvasPointerMove($event)"
+          (pointerup)="onCanvasPointerUp($event)"
+          (pointercancel)="onCanvasPointerUp($event)"
+        >
+          <div
+            class="atlas__world"
+            [style.width.px]="world().width"
+            [style.height.px]="world().height"
+            [class.is-focusing]="focusing()"
+            [style.transform]="worldTransform()"
+          >
+            <svg [attr.viewBox]="viewBox()" role="img" aria-labelledby="atlas-title">
+              @for (link of links(); track link.id) {
+                <path
+                  class="link"
+                  [class.is-dim]="selectedId() && !(isInLineage(link.parent) && isInLineage(link.child))"
+                  [attr.d]="link.path"
+                  fill="none"
+                />
+              }
+
+              @for (node of nodes(); track node.organism.id) {
+                <g
+                  class="node"
+                  [class.is-active]="selectedId() === node.organism.id"
+                  [class.is-dim]="selectedId() && !isInLineage(node.organism.id)"
+                  [attr.transform]="'translate(' + (node.x - node.width / 2) + ' ' + (node.y - node.height / 2) + ')'"
+                  (pointerdown)="onNodePointerDown($event, node.organism.id)"
+                  (keydown.enter)="select(node.organism.id)"
+                  tabindex="0"
+                  role="button"
+                  [attr.aria-pressed]="selectedId() === node.organism.id"
+                >
+                  <rect [attr.width]="node.width" [attr.height]="node.height" rx="2" />
+                  <text class="node__code" x="16" y="28">{{ node.organism.shortName }}</text>
+                  <text class="node__name" x="16" y="50">{{ node.organism.characteristics.role }}</text>
+                </g>
+              }
+            </svg>
+          </div>
+
+          <div class="atlas__tools">
+            <p>Glisser · molette pour zoomer</p>
+            <button type="button" (pointerdown)="$event.stopPropagation()" (click)="resetPan()">
+              Recentrer
+            </button>
+          </div>
+        </div>
+
+        <div class="atlas__panels">
+          <aside class="fiche" [class.fiche--empty]="!selected()">
+            @if (selected(); as organism) {
+              <p class="eyebrow">{{ organism.shortName }} — {{ organism.type }}</p>
+              <h3>{{ organism.name }}</h3>
+              <p class="fiche__lead">{{ organism.description }}</p>
+              <ul class="fiche__meta">
+                <li><span>Autorité</span> {{ organism.characteristics.authority }}</li>
+                <li><span>Rôle</span> {{ organism.characteristics.role }}</li>
+                <li>
+                  <span>Domaine officiel</span>
+                  <a
+                    class="fiche__domain"
+                    [href]="officialHref(organism.officialDomain)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {{ organism.officialDomain }}
+                  </a>
+                </li>
+              </ul>
+              <ul class="fiche__tags">
+                @for (domain of organism.characteristics.domain; track domain) {
+                  <li>{{ domain }}</li>
+                }
+              </ul>
+            } @else {
+              <p class="eyebrow">Caractéristiques</p>
+              <h3>Sélectionner un organisme</h3>
+              <p class="fiche__lead">
+                Chaque nœud ouvre une fiche courte : autorité, rôle et domaine officiel.
+              </p>
+            }
+          </aside>
+
+          <aside class="flux" [class.flux--empty]="!selected()">
+            <p class="eyebrow">Flux</p>
+            @if (selected(); as organism) {
+              @if (relatedEdges().length) {
+                <h3>{{ organism.shortName }}</h3>
+                <ul class="flux__list">
+                  @for (edge of relatedEdges(); track edge.id) {
+                    <li>
+                      <i [style.background]="legendStyle(edge.type)?.color"></i>
+                      <strong>{{ organismName(edge.source) }} → {{ organismName(edge.target) }}</strong>
+                      <small>{{ edge.label }}</small>
+                    </li>
+                  }
+                </ul>
+              } @else {
+                <h3>Aucun flux</h3>
+                <p>Aucun lien n’est encore rattaché à cet organisme.</p>
+              }
+            } @else {
+              <h3>Relations</h3>
+              <p>Les rattachements et les flux de l’organisme sélectionné apparaissent ici.</p>
+            }
+          </aside>
+        </div>
+      </div>
+    }
+  </section>
+</main>
+
+<footer class="footer">
+  <a class="brand brand--footer" routerLink="/">
+    <span class="brand__mark" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="brand__copy">
+      <strong>French Defence Atlas</strong>
+      <small>Comprendre. Explorer. Répertorier.</small>
+    </span>
+  </a>
+  <p>Projet documentaire personnel — sources à vérifier</p>
+  <a routerLink="/architecture" fragment="atlas">Retour au schéma ↑</a>
+</footer>

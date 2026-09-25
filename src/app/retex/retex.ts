@@ -152,6 +152,11 @@ export class Retex {
     return `${day} ${months[month - 1]} ${year}`;
   }
 
+  formatDateNumeric(iso: string): string {
+    const [year, month, day] = iso.split('-');
+    return `${day}.${month}.${year}`;
+  }
+
   @HostListener('document:keydown.arrowleft')
   onArrowLeft(): void {
     if (this.openBillet()) {

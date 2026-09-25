@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "title": "Architecture de la Défense française",
+    "version": "1.0",
+    "description": "Registre des organismes de l’écosystème français de défense."
+  },
+  "organismes": [
+    {
+      "id": "president-republique",
+      "name": "Président de la République",
+      "shortName": "PR",
+      "type": "autorité",
+      "category": "direction",
+      "parent": null,
+      "level": 1,
+      "officialDomain": "elysee.fr",
+      "status": "active",
+      "description": "Chef des armées. Il fixe les orientations de la politique de défense et préside les instances de décision stratégique.",
+      "characteristics": {
+        "domain": ["Décision", "Dissuasion", "Hautes autorités"],
+        "authority": "Constitution",
+        "role": "Orientation"
+      },
+      "visual": {
+        "position": { "x": 600, "y": 88 }
+      }
+    },
+    {
+      "id": "minarm",
+      "name": "Ministère des Armées",
+      "shortName": "MINARM",
+      "type": "institution",
+      "category": "direction",
+      "parent": "president-republique",
+      "level": 1,
+      "officialDomain": "defense.gouv.fr",
+      "status": "active",
+      "description": "Porte l’appareil de défense : forces, armement, renseignement, administration et préparation de l’avenir.",
+      "characteristics": {
+        "domain": ["Politique de défense", "Administration", "Tutelle"],
+        "authority": "Président de la République",
+        "role": "Pilotage"
+      },
+      "visual": {
+        "position": { "x": 600, "y": 248 }
+      }
+    },
+    {
+      "id": "ema",
+      "name": "État-major des armées",
+      "shortName": "EMA",
+      "type": "commandement",
+      "category": "commandement",
+      "parent": "minarm",
+      "level": 2,
+      "officialDomain": "defense.gouv.fr",
+      "status": "active",
+      "description": "Conçoit l’emploi des forces, conduit les opérations et exprime le besoin militaire auprès des organismes capacitaires.",
+      "characteristics": {
+        "domain": ["Opérations", "Commandement", "Interarmées"],
+        "authority": "Ministère des Armées",
+        "role": "Emploi"
+      },
+      "visual": {
+        "position": { "x": 240, "y": 430 }
+      }
+    },
+    {
+      "id": "dga",
+      "name": "Direction générale de l’armement",
+      "shortName": "DGA",
+      "type": "administration",
+      "category": "capacites",
+      "parent": "minarm",
+      "level": 2,
+      "officialDomain": "defense.gouv.fr",
+      "status": "active",
+      "description": "Prépare et conduit les programmes d’armement. Relie le besoin militaire à l’industrie et aux technologies de défense.",
+      "characteristics": {
+        "domain": ["Armement", "Technologies de défense", "Industrie"],
+        "authority": "Ministère des Armées",
+        "role": "Capacités"
+      },
+      "visual": {
+        "position": { "x": 600, "y": 430 }
+      }
+    },
+    {
+      "id": "dgse",
+      "name": "Direction générale de la sécurité extérieure",
+      "shortName": "DGSE",
+      "type": "renseignement",
+      "category": "renseignement",
+      "parent": "minarm",
+      "level": 2,
+      "officialDomain": "dgse.gouv.fr",
+      "status": "active",
+      "description": "Service de renseignement extérieur. Recueille et exploite l’information hors du territoire pour éclairer la décision.",
+      "characteristics": {
+        "domain": ["Renseignement extérieur", "Opérations clandestines"],
+        "authority": "Ministère des Armées",
+        "role": "Renseignement"
+      },
+      "visual": {
+        "position": { "x": 960, "y": 430 }
+      }
+    },
+    {
+      "id": "drm",
+      "name": "Direction du renseignement militaire",
+      "shortName": "DRM",
+      "type": "renseignement",
+      "category": "renseignement",
+      "parent": "ema",
+      "level": 3,
+      "officialDomain": "defense.gouv.fr",
+      "status": "active",
+      "description": "Renseignement d’intérêt militaire au profit du commandement et de la conduite des opérations.",
+      "characteristics": {
+        "domain": ["Renseignement militaire", "Situations opératives"],
+        "authority": "État-major des armées",
+        "role": "Renseignement"
+      },
+      "visual": {
+        "position": { "x": 240, "y": 600 }
+      }
+    },
+    {
+      "id": "drsd",
+      "name": "Direction du renseignement et de la sécurité de la défense",
+      "shortName": "DRSD",
+      "type": "renseignement",
+      "category": "renseignement",
+      "parent": "minarm",
+      "level": 2,
+      "officialDomain": "defense.gouv.fr",
+      "status": "active",
+      "description": "Contre-ingérence et sécurité de défense : protège le personnel, les sites, les informations et les industriels sensibles.",
+      "characteristics": {
+        "domain": ["Contre-ingérence", "Sécurité de défense"],
+        "authority": "Ministère des Armées",
+        "role": "Protection"
+      },
+      "visual": {
+        "position": { "x": 780, "y": 600 }
+      }
+    }
+  ]
+}

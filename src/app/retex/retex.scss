@@ -190,8 +190,15 @@
   color: var(--sand);
 }
 
+.billet__date-short {
+  display: none;
+}
+
 .billet__author {
+  min-width: 0;
+  overflow: hidden;
   color: rgba(243, 241, 235, 0.5);
+  text-overflow: ellipsis;
 }
 
 .billet h3 {
@@ -386,9 +393,19 @@ blockquote {
   .carnet__heading {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 1040px) {
+  .billet__date-long {
+    display: none;
+  }
+
+  .billet__date-short {
+    display: inline;
+  }
 
   .billet__header {
-    grid-template-columns: 40px 170px 130px minmax(0, 1fr) 24px;
+    grid-template-columns: 40px 7.4rem 130px minmax(0, 1fr) 24px;
     gap: 12px 14px;
   }
 }
@@ -413,9 +430,32 @@ blockquote {
   }
 
   .billet__header {
-    grid-template-columns: 36px 7.2rem 7.4rem minmax(0, 1fr) 20px;
+    grid-template-columns: 32px auto minmax(0, 1fr) 20px;
+    grid-template-areas:
+      'num date author toggle'
+      'title title title title';
     padding: 16px 14px;
-    gap: 10px;
+    gap: 8px 10px;
+  }
+
+  .billet__number {
+    grid-area: num;
+  }
+
+  .billet__date {
+    grid-area: date;
+  }
+
+  .billet__author {
+    grid-area: author;
+  }
+
+  .billet h3 {
+    grid-area: title;
+  }
+
+  .billet__toggle {
+    grid-area: toggle;
   }
 
   .carousel__frame {

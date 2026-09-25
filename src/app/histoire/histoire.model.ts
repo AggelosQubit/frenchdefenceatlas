@@ -24,3 +24,26 @@ export interface HistoryPeriod {
   readonly image: string;
   readonly imagePosition: string;
 }
+
+export type DocumentaryCategoryId =
+  | 'de-gaulle'
+  | 've-republique'
+  | 'europe-puissance'
+  | 'guerre-conflits';
+
+export interface DocumentaryCategory {
+  readonly id: DocumentaryCategoryId;
+  readonly title: string;
+  readonly summary: string;
+}
+
+export interface Documentary {
+  readonly id: string;
+  readonly number: string;
+  readonly year: number;
+  readonly title: string;
+  readonly channel: string;
+  readonly description: string;
+  readonly url: string;
+  readonly category: DocumentaryCategoryId;
+}

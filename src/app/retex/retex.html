@@ -44,7 +44,10 @@
             (click)="toggleBillet(entry.id)"
           >
             <span class="billet__number">{{ pad(entry.id) }}</span>
-            <span class="billet__date">{{ formatDate(entry.date) }}</span>
+            <span class="billet__date">
+              <span class="billet__date-long">{{ formatDate(entry.date) }}</span>
+              <span class="billet__date-short">{{ formatDateNumeric(entry.date) }}</span>
+            </span>
             <span class="billet__author">{{ entry.Author }}</span>
             <h3>{{ entry.titre }}</h3>
             <span class="billet__toggle" aria-hidden="true">{{ isBilletOpen(entry.id) ? '–' : '+' }}</span>

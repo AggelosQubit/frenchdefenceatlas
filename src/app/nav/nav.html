@@ -29,7 +29,7 @@
 </header>
 
 <nav id="site-navigation" class="navigation" [class.navigation--open]="menuOpen()">
-  <a routerLink="/" fragment="organisation" (click)="closeMenu()">Architecture</a>
+  <a routerLink="/architecture" routerLinkActive="is-current" (click)="closeMenu()">Architecture</a>
   <a routerLink="/histoire" routerLinkActive="is-current" (click)="closeMenu()">Histoire</a>
   <a routerLink="/" fragment="geopolitique" (click)="closeMenu()">Géopolitique</a>
   <a routerLink="/" fragment="capacites" (click)="closeMenu()">Moyens & Forces</a>

@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "title": "Architecture de la Défense française",
+    "version": "1.0",
+    "description": "Relations fonctionnelles de l’écosystème français de défense."
+  },
+  "legend": {
+    "direction": {
+      "label": "Direction",
+      "question": "Qui commande ?",
+      "description": "Orientation, autorité ou décision transmise à un organisme.",
+      "color": "#e2c06e",
+      "lineStyle": "solid",
+      "arrow": "forward"
+    },
+    "information": {
+      "label": "Information",
+      "question": "Qui informe ?",
+      "description": "Transmission d’une information, d’un renseignement ou d’une appréciation.",
+      "color": "#6a9ec9",
+      "lineStyle": "solid",
+      "arrow": "forward"
+    },
+    "production": {
+      "label": "Production / capacité",
+      "question": "Qui produit ?",
+      "description": "Production d’une capacité, d’un équipement, d’une ressource ou d’un effet.",
+      "color": "#3d9a45",
+      "lineStyle": "solid",
+      "arrow": "forward"
+    },
+    "transmission": {
+      "label": "Transmission",
+      "question": "Qui transmet ?",
+      "description": "Transmission d’une ressource, d’un ordre, d’un produit ou d’un résultat.",
+      "color": "#f3f1eb",
+      "lineStyle": "solid",
+      "arrow": "forward"
+    },
+    "employment": {
+      "label": "Emploi / action",
+      "question": "Qui agit ?",
+      "description": "Emploi d’une force ou mise en œuvre d’une décision.",
+      "color": "#c42332",
+      "lineStyle": "solid",
+      "arrow": "forward"
+    },
+    "feedback": {
+      "label": "Retour / RETEX",
+      "question": "Qui rend compte ?",
+      "description": "Retour d’expérience, évaluation ou information permettant d’adapter le système.",
+      "color": "#1f9a86",
+      "lineStyle": "solid",
+      "arrow": "forward"
+    }
+  },
+  "relations": [
+    {
+      "id": "president-minarm",
+      "source": "president-republique",
+      "target": "minarm",
+      "type": "direction",
+      "label": "Orientation stratégique"
+    },
+    {
+      "id": "minarm-ema",
+      "source": "minarm",
+      "target": "ema",
+      "type": "direction",
+      "label": "Autorité de commandement"
+    },
+    {
+      "id": "minarm-dga",
+      "source": "minarm",
+      "target": "dga",
+      "type": "direction",
+      "label": "Tutelle capacitaire"
+    },
+    {
+      "id": "minarm-dgse",
+      "source": "minarm",
+      "target": "dgse",
+      "type": "direction",
+      "label": "Tutelle"
+    },
+    {
+      "id": "minarm-drsd",
+      "source": "minarm",
+      "target": "drsd",
+      "type": "direction",
+      "label": "Tutelle"
+    },
+    {
+      "id": "ema-drm",
+      "source": "ema",
+      "target": "drm",
+      "type": "direction",
+      "label": "Autorité"
+    },
+    {
+      "id": "ema-dga",
+      "source": "ema",
+      "target": "dga",
+      "type": "information",
+      "label": "Besoin capacitaire"
+    },
+    {
+      "id": "dga-ema",
+      "source": "dga",
+      "target": "ema",
+      "type": "production",
+      "label": "Livraison capacitaire"
+    },
+    {
+      "id": "drm-ema",
+      "source": "drm",
+      "target": "ema",
+      "type": "information",
+      "label": "Renseignement militaire"
+    },
+    {
+      "id": "dgse-minarm",
+      "source": "dgse",
+      "target": "minarm",
+      "type": "information",
+      "label": "Renseignement extérieur"
+    },
+    {
+      "id": "drsd-minarm",
+      "source": "drsd",
+      "target": "minarm",
+      "type": "information",
+      "label": "Sécurité de défense"
+    },
+    {
+      "id": "ema-minarm-retex",
+      "source": "ema",
+      "target": "minarm",
+      "type": "feedback",
+      "label": "RETEX opérationnel"
+    }
+  ]
+}
