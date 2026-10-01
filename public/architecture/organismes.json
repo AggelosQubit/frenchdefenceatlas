@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Architecture de la Défense française",
-    "version": "1.0",
+    "version": "1.1",
     "description": "Registre des organismes de l’écosystème français de défense."
   },
   "organismes": [
@@ -26,6 +26,26 @@
       }
     },
     {
+      "id": "cnrlt",
+      "name": "Coordination nationale du renseignement et de la lutte contre le terrorisme",
+      "shortName": "CNRLT",
+      "type": "autorité",
+      "category": "direction",
+      "parent": "president-republique",
+      "level": 2,
+      "officialDomain": "elysee.fr",
+      "status": "active",
+      "description": "Coordonne la communauté du renseignement et prépare les orientations du Conseil national du renseignement. Elle ne commande pas les services.",
+      "characteristics": {
+        "domain": ["Coordination", "Renseignement", "Lutte contre le terrorisme"],
+        "authority": "Président de la République",
+        "role": "Coordination"
+      },
+      "visual": {
+        "position": { "x": 160, "y": 248 }
+      }
+    },
+    {
       "id": "minarm",
       "name": "Ministère des Armées",
       "shortName": "MINARM",
@@ -35,9 +55,9 @@
       "level": 1,
       "officialDomain": "defense.gouv.fr",
       "status": "active",
-      "description": "Porte l’appareil de défense : forces, armement, renseignement, administration et préparation de l’avenir.",
+      "description": "Porte l’appareil de défense : forces, armement, administration, stratégie et les services de renseignement qui lui sont rattachés.",
       "characteristics": {
-        "domain": ["Politique de défense", "Administration", "Tutelle"],
+        "domain": ["Politique de défense", "Administration", "Autorité"],
         "authority": "Président de la République",
         "role": "Pilotage"
       },
@@ -46,16 +66,56 @@
       }
     },
     {
+      "id": "minint",
+      "name": "Ministère de l’Intérieur",
+      "shortName": "MININT",
+      "type": "institution",
+      "category": "direction",
+      "parent": "president-republique",
+      "level": 2,
+      "officialDomain": "interieur.gouv.fr",
+      "status": "active",
+      "description": "Autorité de la DGSI. Le renseignement intérieur relève de ce ministère, pas des Armées.",
+      "characteristics": {
+        "domain": ["Sécurité intérieure", "Renseignement"],
+        "authority": "Président de la République",
+        "role": "Intérieur"
+      },
+      "visual": {
+        "position": { "x": 1080, "y": 248 }
+      }
+    },
+    {
+      "id": "mineco",
+      "name": "Ministère de l’Économie et des Finances",
+      "shortName": "MINECO",
+      "type": "institution",
+      "category": "direction",
+      "parent": "president-republique",
+      "level": 2,
+      "officialDomain": "economie.gouv.fr",
+      "status": "active",
+      "description": "Autorité de la DNRED et de TRACFIN. Le renseignement douanier et financier relève de ce ministère.",
+      "characteristics": {
+        "domain": ["Finances", "Douanes", "Renseignement"],
+        "authority": "Président de la République",
+        "role": "Économie"
+      },
+      "visual": {
+        "position": { "x": 1320, "y": 248 }
+      }
+    },
+    {
       "id": "ema",
-      "name": "État-major des armées",
-      "shortName": "EMA",
+      "name": "Chef d’état-major des armées",
+      "shortName": "CEMA",
       "type": "commandement",
       "category": "commandement",
       "parent": "minarm",
       "level": 2,
       "officialDomain": "defense.gouv.fr",
       "status": "active",
-      "description": "Conçoit l’emploi des forces, conduit les opérations et exprime le besoin militaire auprès des organismes capacitaires.",
+      "description": "Responsable de l’emploi des forces. Il dispose de l’état-major des armées et a autorité sur les organismes interarmées, dont la DRM, le COMCYBER, le COS et la DIRISI.",
       "characteristics": {
         "domain": ["Opérations", "Commandement", "Interarmées"],
         "authority": "Ministère des Armées",
@@ -82,7 +142,47 @@
         "role": "Capacités"
       },
       "visual": {
-        "position": { "x": 600, "y": 430 }
+        "position": { "x": 460, "y": 430 }
+      }
+    },
+    {
+      "id": "sga",
+      "name": "Secrétariat général pour l’administration",
+      "shortName": "SGA",
+      "type": "administration",
+      "category": "direction",
+      "parent": "minarm",
+      "level": 2,
+      "officialDomain": "defense.gouv.fr",
+      "status": "active",
+      "description": "Troisième grand subordonné du ministre, avec le CEMA et la DGA. Couvre les ressources humaines, les finances, les infrastructures et le soutien administratif.",
+      "characteristics": {
+        "domain": ["Ressources humaines", "Finances", "Soutien"],
+        "authority": "Ministère des Armées",
+        "role": "Soutien"
+      },
+      "visual": {
+        "position": { "x": 680, "y": 430 }
+      }
+    },
+    {
+      "id": "dgris",
+      "name": "Direction générale des relations internationales et de la stratégie",
+      "shortName": "DGRIS",
+      "type": "administration",
+      "category": "direction",
+      "parent": "minarm",
+      "level": 2,
+      "officialDomain": "defense.gouv.fr",
+      "status": "active",
+      "description": "Relations internationales, prospective et politique de défense. Direction du ministre, distincte de l’état-major des armées et de la DGA.",
+      "characteristics": {
+        "domain": ["Stratégie", "Relations internationales", "Prospective"],
+        "authority": "Ministère des Armées",
+        "role": "Stratégie"
+      },
+      "visual": {
+        "position": { "x": 900, "y": 430 }
       }
     },
     {
@@ -95,34 +195,14 @@
       "level": 2,
       "officialDomain": "dgse.gouv.fr",
       "status": "active",
-      "description": "Service de renseignement extérieur. Recueille et exploite l’information hors du territoire pour éclairer la décision.",
+      "description": "Service de renseignement extérieur, placé sous l’autorité du ministre des Armées. Membre du premier cercle, coordonné par la CNRLT.",
       "characteristics": {
         "domain": ["Renseignement extérieur", "Opérations clandestines"],
         "authority": "Ministère des Armées",
         "role": "Renseignement"
       },
       "visual": {
-        "position": { "x": 960, "y": 430 }
-      }
-    },
-    {
-      "id": "drm",
-      "name": "Direction du renseignement militaire",
-      "shortName": "DRM",
-      "type": "renseignement",
-      "category": "renseignement",
-      "parent": "ema",
-      "level": 3,
-      "officialDomain": "defense.gouv.fr",
-      "status": "active",
-      "description": "Renseignement d’intérêt militaire au profit du commandement et de la conduite des opérations.",
-      "characteristics": {
-        "domain": ["Renseignement militaire", "Situations opératives"],
-        "authority": "État-major des armées",
-        "role": "Renseignement"
-      },
-      "visual": {
-        "position": { "x": 240, "y": 600 }
+        "position": { "x": 1120, "y": 430 }
       }
     },
     {
@@ -135,14 +215,154 @@
       "level": 2,
       "officialDomain": "defense.gouv.fr",
       "status": "active",
-      "description": "Contre-ingérence et sécurité de défense : protège le personnel, les sites, les informations et les industriels sensibles.",
+      "description": "Contre-ingérence et sécurité de défense, rattachée au ministre des Armées. Membre du premier cercle, coordonné par la CNRLT.",
       "characteristics": {
         "domain": ["Contre-ingérence", "Sécurité de défense"],
         "authority": "Ministère des Armées",
         "role": "Protection"
       },
       "visual": {
-        "position": { "x": 780, "y": 600 }
+        "position": { "x": 1340, "y": 430 }
+      }
+    },
+    {
+      "id": "drm",
+      "name": "Direction du renseignement militaire",
+      "shortName": "DRM",
+      "type": "renseignement",
+      "category": "renseignement",
+      "parent": "ema",
+      "level": 3,
+      "officialDomain": "defense.gouv.fr",
+      "status": "active",
+      "description": "Organisme interarmées placé sous l’autorité du chef d’état-major des armées. Il produit le renseignement d’intérêt militaire et appartient au premier cercle, coordonné par la CNRLT.",
+      "characteristics": {
+        "domain": ["Renseignement militaire", "Organisme interarmées"],
+        "authority": "Chef d’état-major des armées",
+        "role": "Renseignement"
+      },
+      "visual": {
+        "position": { "x": 80, "y": 600 }
+      }
+    },
+    {
+      "id": "comcyber",
+      "name": "Commandement de la cyberdéfense",
+      "shortName": "COMCYBER",
+      "type": "commandement",
+      "category": "commandement",
+      "parent": "ema",
+      "level": 3,
+      "officialDomain": "defense.gouv.fr",
+      "status": "active",
+      "description": "Organisme interarmées de cyberdéfense, placé sous l’autorité du chef d’état-major des armées.",
+      "characteristics": {
+        "domain": ["Cyberdéfense", "Opérations numériques"],
+        "authority": "Chef d’état-major des armées",
+        "role": "Cyber"
+      },
+      "visual": {
+        "position": { "x": 280, "y": 600 }
+      }
+    },
+    {
+      "id": "cos",
+      "name": "Commandement des opérations spéciales",
+      "shortName": "COS",
+      "type": "commandement",
+      "category": "commandement",
+      "parent": "ema",
+      "level": 3,
+      "officialDomain": "defense.gouv.fr",
+      "status": "active",
+      "description": "Organisme interarmées des opérations spéciales, placé sous l’autorité du chef d’état-major des armées.",
+      "characteristics": {
+        "domain": ["Opérations spéciales", "Interarmées"],
+        "authority": "Chef d’état-major des armées",
+        "role": "Spéciales"
+      },
+      "visual": {
+        "position": { "x": 480, "y": 600 }
+      }
+    },
+    {
+      "id": "dirisi",
+      "name": "Direction interarmées des réseaux d’infrastructure et des systèmes d’information",
+      "shortName": "DIRISI",
+      "type": "administration",
+      "category": "commandement",
+      "parent": "ema",
+      "level": 3,
+      "officialDomain": "defense.gouv.fr",
+      "status": "active",
+      "description": "Organisme interarmées des réseaux et des systèmes d’information, placé sous l’autorité du chef d’état-major des armées.",
+      "characteristics": {
+        "domain": ["Réseaux", "Systèmes d’information"],
+        "authority": "Chef d’état-major des armées",
+        "role": "Réseaux"
+      },
+      "visual": {
+        "position": { "x": 680, "y": 600 }
+      }
+    },
+    {
+      "id": "dgsi",
+      "name": "Direction générale de la sécurité intérieure",
+      "shortName": "DGSI",
+      "type": "renseignement",
+      "category": "renseignement",
+      "parent": "minint",
+      "level": 2,
+      "officialDomain": "interieur.gouv.fr",
+      "status": "active",
+      "description": "Renseignement de sécurité intérieure, sous l’autorité du ministre de l’Intérieur. Membre du premier cercle, coordonné par la CNRLT.",
+      "characteristics": {
+        "domain": ["Sécurité intérieure", "Contre-terrorisme"],
+        "authority": "Ministère de l’Intérieur",
+        "role": "Renseignement"
+      },
+      "visual": {
+        "position": { "x": 1080, "y": 430 }
+      }
+    },
+    {
+      "id": "dnred",
+      "name": "Direction nationale du renseignement et des enquêtes douanières",
+      "shortName": "DNRED",
+      "type": "renseignement",
+      "category": "renseignement",
+      "parent": "mineco",
+      "level": 2,
+      "officialDomain": "douane.gouv.fr",
+      "status": "active",
+      "description": "Renseignement douanier, rattaché à la direction générale des douanes. Membre du premier cercle, coordonné par la CNRLT.",
+      "characteristics": {
+        "domain": ["Renseignement douanier", "Fraude"],
+        "authority": "Ministère de l’Économie et des Finances",
+        "role": "Renseignement"
+      },
+      "visual": {
+        "position": { "x": 1240, "y": 430 }
+      }
+    },
+    {
+      "id": "tracfin",
+      "name": "Traitement du renseignement et action contre les circuits financiers clandestins",
+      "shortName": "TRACFIN",
+      "type": "renseignement",
+      "category": "renseignement",
+      "parent": "mineco",
+      "level": 2,
+      "officialDomain": "economie.gouv.fr",
+      "status": "active",
+      "description": "Renseignement financier, sous l’autorité du ministre chargé de l’économie. Membre du premier cercle, coordonné par la CNRLT.",
+      "characteristics": {
+        "domain": ["Renseignement financier", "Circuits clandestins"],
+        "authority": "Ministère de l’Économie et des Finances",
+        "role": "Renseignement"
+      },
+      "visual": {
+        "position": { "x": 1460, "y": 430 }
       }
     }
   ]

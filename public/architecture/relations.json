@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Architecture de la Défense française",
-    "version": "1.0",
+    "version": "1.1",
     "description": "Relations fonctionnelles de l’écosystème français de défense."
   },
   "legend": {
@@ -63,6 +63,27 @@
       "label": "Orientation stratégique"
     },
     {
+      "id": "president-cnrlt",
+      "source": "president-republique",
+      "target": "cnrlt",
+      "type": "direction",
+      "label": "Orientations du renseignement"
+    },
+    {
+      "id": "president-minint",
+      "source": "president-republique",
+      "target": "minint",
+      "type": "direction",
+      "label": "Autorité"
+    },
+    {
+      "id": "president-mineco",
+      "source": "president-republique",
+      "target": "mineco",
+      "type": "direction",
+      "label": "Autorité"
+    },
+    {
       "id": "minarm-ema",
       "source": "minarm",
       "target": "ema",
@@ -74,28 +95,84 @@
       "source": "minarm",
       "target": "dga",
       "type": "direction",
-      "label": "Tutelle capacitaire"
+      "label": "Autorité capacitaire"
+    },
+    {
+      "id": "minarm-sga",
+      "source": "minarm",
+      "target": "sga",
+      "type": "direction",
+      "label": "Autorité"
+    },
+    {
+      "id": "minarm-dgris",
+      "source": "minarm",
+      "target": "dgris",
+      "type": "direction",
+      "label": "Autorité"
     },
     {
       "id": "minarm-dgse",
       "source": "minarm",
       "target": "dgse",
       "type": "direction",
-      "label": "Tutelle"
+      "label": "Autorité"
     },
     {
       "id": "minarm-drsd",
       "source": "minarm",
       "target": "drsd",
       "type": "direction",
-      "label": "Tutelle"
+      "label": "Autorité"
+    },
+    {
+      "id": "minint-dgsi",
+      "source": "minint",
+      "target": "dgsi",
+      "type": "direction",
+      "label": "Autorité"
+    },
+    {
+      "id": "mineco-dnred",
+      "source": "mineco",
+      "target": "dnred",
+      "type": "direction",
+      "label": "Autorité"
+    },
+    {
+      "id": "mineco-tracfin",
+      "source": "mineco",
+      "target": "tracfin",
+      "type": "direction",
+      "label": "Autorité"
     },
     {
       "id": "ema-drm",
       "source": "ema",
       "target": "drm",
       "type": "direction",
-      "label": "Autorité"
+      "label": "Autorité du CEMA"
+    },
+    {
+      "id": "ema-comcyber",
+      "source": "ema",
+      "target": "comcyber",
+      "type": "direction",
+      "label": "Autorité du CEMA"
+    },
+    {
+      "id": "ema-cos",
+      "source": "ema",
+      "target": "cos",
+      "type": "direction",
+      "label": "Autorité du CEMA"
+    },
+    {
+      "id": "ema-dirisi",
+      "source": "ema",
+      "target": "dirisi",
+      "type": "direction",
+      "label": "Autorité du CEMA"
     },
     {
       "id": "ema-dga",
@@ -138,6 +215,48 @@
       "target": "minarm",
       "type": "feedback",
       "label": "RETEX opérationnel"
+    },
+    {
+      "id": "cnrlt-dgse",
+      "source": "cnrlt",
+      "target": "dgse",
+      "type": "information",
+      "label": "Coordination du premier cercle"
+    },
+    {
+      "id": "cnrlt-drm",
+      "source": "cnrlt",
+      "target": "drm",
+      "type": "information",
+      "label": "Coordination du premier cercle"
+    },
+    {
+      "id": "cnrlt-drsd",
+      "source": "cnrlt",
+      "target": "drsd",
+      "type": "information",
+      "label": "Coordination du premier cercle"
+    },
+    {
+      "id": "cnrlt-dgsi",
+      "source": "cnrlt",
+      "target": "dgsi",
+      "type": "information",
+      "label": "Coordination du premier cercle"
+    },
+    {
+      "id": "cnrlt-dnred",
+      "source": "cnrlt",
+      "target": "dnred",
+      "type": "information",
+      "label": "Coordination du premier cercle"
+    },
+    {
+      "id": "cnrlt-tracfin",
+      "source": "cnrlt",
+      "target": "tracfin",
+      "type": "information",
+      "label": "Coordination du premier cercle"
     }
   ]
 }

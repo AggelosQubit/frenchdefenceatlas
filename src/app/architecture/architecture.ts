@@ -37,18 +37,6 @@ const PAN_THRESHOLD = 5;
 const MIN_SCALE = 0.35;
 const MAX_SCALE = 2.8;
 
-function maxVisibleLevel(scale: number): number {
-  if (scale < 0.62) {
-    return 1;
-  }
-
-  if (scale < 0.92) {
-    return 2;
-  }
-
-  return Number.POSITIVE_INFINITY;
-}
-
 @Component({
   selector: 'app-architecture',
   imports: [RouterLink, SiteNav],
@@ -96,16 +84,11 @@ export class Architecture {
     );
   });
 
-  readonly visibleLevel = computed(() => maxVisibleLevel(this.scale()));
-
   readonly allNodes = computed<readonly GraphNodeView[]>(() =>
     this.layoutTree(this.organisms()),
   );
 
-  readonly nodes = computed<readonly GraphNodeView[]>(() => {
-    const level = this.visibleLevel();
-    return this.allNodes().filter((node) => node.organism.level <= level);
-  });
+  readonly nodes = computed<readonly GraphNodeView[]>(() => this.allNodes());
 
   readonly links = computed<readonly HierarchyLink[]>(() => {
     const visible = new Map(this.nodes().map((node) => [node.organism.id, node]));
