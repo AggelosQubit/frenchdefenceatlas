@@ -36,19 +36,8 @@ export const DOCUMENTARIES: readonly Documentary[] = [
     category: 'de-gaulle',
   },
   {
-    id: 'de-gaulle-figure-emblematique',
-    number: '02',
-    year: 1944,
-    title: 'De Gaulle, figure emblématique de l’Histoire de France',
-    channel: 'World at War',
-    description:
-      'Portrait de Charles de Gaulle comme figure tutélaire de l’histoire de France, de la France libre à la présidence de la Ve République.',
-    url: 'https://www.youtube.com/watch?v=EveTkv8PUYw',
-    category: 'de-gaulle',
-  },
-  {
     id: 'de-gaulle-onu',
-    number: '03',
+    number: '02',
     year: 1945,
     title: 'De Gaulle et l’ONU : Comment la France a arraché son siège permanent',
     channel: 'SLICE Histoire',
@@ -59,7 +48,7 @@ export const DOCUMENTARIES: readonly Documentary[] = [
   },
   {
     id: 'republique-des-crises',
-    number: '04',
+    number: '03',
     year: 1958,
     title: 'La République des crises : histoire du pouvoir en France depuis 1958',
     channel: 'Notre Histoire',
@@ -70,7 +59,7 @@ export const DOCUMENTARIES: readonly Documentary[] = [
   },
   {
     id: 'de-gaulle-politique-etrangere',
-    number: '05',
+    number: '04',
     year: 1959,
     title: '1958–1969 : Comment De Gaulle a redéfini la politique étrangère française ?',
     channel: 'Notre Histoire',
@@ -81,7 +70,7 @@ export const DOCUMENTARIES: readonly Documentary[] = [
   },
   {
     id: 'de-gaulle-surveille',
-    number: '06',
+    number: '05',
     year: 1962,
     title: 'De Gaulle surveillé : L’ingérence secrète des États-Unis en France',
     channel: 'SLICE Histoire',
@@ -92,7 +81,7 @@ export const DOCUMENTARIES: readonly Documentary[] = [
   },
   {
     id: 'mythe-de-gaulle',
-    number: '07',
+    number: '06',
     year: 1970,
     title: 'Le mythe De Gaulle',
     channel: 'Rivenzi',
